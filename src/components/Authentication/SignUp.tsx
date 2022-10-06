@@ -1,213 +1,58 @@
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {useState} from 'react'
-import { useAppDispatch, useAppSelector } from '../../Redux/hook';
-import { signUp } from '../../Redux/Actions/Authentication';
-import validator from "validator";
-import {useNavigate} from 'react-router-dom';
+import React from 'react'
+import './authentication.css'
+import {FaEnvelope, FaLock} from 'react-icons/fa';
+import loginImage from '../../Assets/Images/login-image.png'
 
-function Copyright(props: any) {
+
+const SignUp = () => {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        iView Labs
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
+    <div className='signup  ' >
+
+      <div className='signup-form' >
+
+        <div className='signup-heading bg-white' >
+          <h2 className='bg-white' >Admin Panel</h2>
+        </div>
+
+        <div className='bg-white'>
+          <h4 className='bg-white'>Welcome</h4>
+          <p className='bg-white text-secondary'>Enter your email address and password to access admin panel.</p>
+        </div>
+
+       <div>
+          <div className='signup-email' >
+              <label htmlFor="email" className='signup-label' id='email-address' >Email Address</label>
+              <div className="input-group mb-3" id='email-address'>
+                <span className="input-group-text bg-dark " id="basic-addon1"><FaEnvelope className='text-light bg-dark' /></span>
+                <input type="text" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
+              </div>
+            </div>
+            
+
+            <div className='signup-password' >
+              <label htmlFor="email" className='signup-label' id='password' >Password</label>
+              <div className="input-group flex-nowrap">
+                <span className="input-group-text bg-dark" id="addon-wrapping"> <FaLock className='text-light bg-dark' /> </span>
+                <input type="text" id='password' className="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping" />
+              </div>
+            </div>
+       </div>
+
+       <div className='bg-white'>
+        <button className='signup-btn btn bg-dark text-white mt-5' >Log In</button>
+       </div>
+       
+      </div>
+
+
+
+
+      <div className='signup-image'>
+        <img src={loginImage} alt="login page Image" className='signup-page-image' />
+      </div>
+
+    </div>
+  )
 }
 
-const theme = createTheme();
-
-export default function SignUp() {
-
-  // interface signUpData {
-  //   firstname : string,
-  //   lastname : string,
-  //   email : string,
-  //   password : string,
-  //   confirmPassword : string
-  // }
-
-  const [signupData, setSignupData]:any = useState({
-    firstname : "",
-    lastname : "",
-    email : "",
-    password : "",
-    confirmPassword : ""
-  })
-
-  const dispatch = useAppDispatch()
-
-  const store = useAppSelector((state :any ) => state)
-
-  console.log(store.AuthReducer.signup)
-
-  const navigate = useNavigate()
-
-  const handleChange = (e : React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-
-    const {name, value} = e.currentTarget
-
-    setSignupData((data : any) => {
-      return {
-        ...data,
-      [name] : value
-      }
-    })
-  }
-
-  console.log(signupData)
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-
-    // validator.isStrongPassword(signupData.password) ? alert("yessssss") : alert("noooooo")
-
-    if(validator.isEmail(signupData.email) && validator.isStrongPassword(signupData.password) && signupData.password === signupData.confirmPassword){
-      dispatch(signUp(signupData))
-      navigate('/login')
-    }
-    else{
-      alert('Please enter valid data')
-    }
-
-
-    // console.log(data)
-    // console.log({
-    //   email: data.get('email'),
-    //   password: data.get('password'),
-    // });
-  };
-
-  return (
-    <ThemeProvider theme={theme}>
-      <Grid container component="main" sx={{ height: '100vh' }}>
-        <CssBaseline />
-        <Grid
-          item
-          xs={false}
-          sm={4}
-          md={7}
-          sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random)',
-            backgroundRepeat: 'no-repeat',
-            backgroundColor: (t) =>
-              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-          <Box
-            sx={{
-              my: 4,
-              mx: 4,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5">
-              Sign Up
-            </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-            <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="firstname"
-                label="Enter Firstname"
-                name="firstname"
-                autoComplete="firstname"
-                value={signupData.firstname}
-                onChange={handleChange}
-                autoFocus
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="lastname"
-                label="Enter lastname"
-                name="lastname"
-                autoComplete="lastname"
-                value={signupData.lastname}
-                onChange={handleChange}
-                autoFocus
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                value={signupData.email}
-                onChange={handleChange}
-                autoFocus
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="Password"
-                value={signupData.password}
-                onChange={handleChange}
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="confirmPassword"
-                label="Confirm Password"
-                type="password"
-                id="password"
-                autoComplete="Confirm Password"
-                value={signupData.confirmPassword }
-                onChange={handleChange}
-              />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Sign Up
-              </Button>
-              <Grid container>
-                <Grid item>
-                  <Link href='/login' variant="body2">
-                    {"Already have an account? Login"}
-                  </Link>
-                </Grid>
-              </Grid>
-              <Copyright sx={{ mt: 5 }} />
-            </Box>
-          </Box>
-        </Grid>
-      </Grid>
-    </ThemeProvider>
-  );
-}
+export default SignUp
