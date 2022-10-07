@@ -1,4 +1,4 @@
-import { RESET_PASSWORD, SIGN_IN, SIGN_UP } from "../Actions/Authentication";
+  import { RESET_PASSWORD, SIGN_IN, SIGN_UP } from "../Actions/Authentication";
 
 interface InitialState {
     signup : {},

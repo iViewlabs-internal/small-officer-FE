@@ -1,3 +1,8 @@
+.main-signup{
+    display: flex;
+    flex-direction: column;
+}
+
 .signup{
     width: 70%;
     height: 550px;
@@ -17,6 +22,7 @@
     flex-direction: column;
     gap: 30px;
     height: 550px;
+    /* overflow: scroll; */
 }
 
 .input-group-text{
@@ -25,15 +31,11 @@
     justify-content: center;
 }
 
-.signup-email{
-    background-color: white;
-    /* border: 1px solid black; */
-    font-size: large;
-    padding: 3px;
-    font-weight: 600;
+.signup-data{
+    margin-top: -30px;
 }
 
-.signup-password{
+.signup-inputs{
     background-color: white;
     font-size: large;
     padding: 3px;
@@ -50,7 +52,7 @@
     width: 300px;
 }
 
-.signup-email > div > span {
+span {
     border: 2px solid black;
     padding: 0%;
     margin: 0px;
@@ -58,7 +60,7 @@
     padding: 0;
 }
 
-.signup-email > div > input{
+input{
     border: 2px solid rgb(144, 140, 140);
     padding: 0%;
     margin: 0px;
@@ -66,20 +68,12 @@
     padding: 10px;
 }
 
-.signup-password > div > span {
-    border: 2px solid black;
-    padding: 0%;
-    margin: 0px;
-    height: 40px;
-    padding: 0;
+.signup-btn{
+    margin-top: -10%;
 }
 
-.signup-password > div > input{
-    border: 2px solid rgb(144, 140, 140);
-    padding: 0%;
-    margin: 0px;
-    height: 40px;
-    padding: 10px;
+.login-btn{
+    margin-top: 20px;
 }
 
 .signup-image{
@@ -91,4 +85,18 @@
 
 .signup-image > img {
     height: 550px;
+}
+
+.toastify{
+    width: 100px;
+    height: 40px;
+    /* border: 1px solid black; */
+}
+
+.toast-message {
+    color: #fff;
+    font-size: 14px;
+    width: 34vw;
+    padding: 30px 20px;
+    height: 18px;
 }

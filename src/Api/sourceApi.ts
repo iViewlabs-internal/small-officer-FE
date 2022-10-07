@@ -1,0 +1,1 @@
+export const api = 'https://small-officer.herokuapp.com/api/user'

@@ -1,11 +1,12 @@
 import './App.css';
-import SignUp from './components/Authentication/SignUp';
-import { Routes, Route } from 'react-router-dom';
-import Login from './components/Authentication/Login';
+import SignUp from './components/Authentication/SignUp/SignUp';
+import { Routes, Route, useParams } from 'react-router-dom';
+import Login from './components/Authentication/Login/Login';
 // import ResetPassword from './components/Authentication/ResetPassword';
 import { Store } from './Redux/Store';
 import { useAppSelector } from './Redux/hook';
 import Home from './Pages/Home/Home';
+import Pages from './Pages/AllPages/Pages';
 
 function App() {
 
@@ -13,15 +14,18 @@ function App() {
 
   console.log(Store)
 
+  const param = useParams()
+
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<Home />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/' />
         {/* <Route path='/resetPassword' element={<ResetPassword />} /> */}
       </Routes>
+      <div style={{display : 'hidden'}}>
+        <Pages />
+      </div>
     </div>
   );
 }
