@@ -1,0 +1,102 @@
+.main-signup{
+    display: flex;
+    flex-direction: column;
+}
+
+.signup{
+    width: 70%;
+    height: 550px;
+    background-color: white;
+    /* border: 1px solid black; */
+    margin: 5% auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    border-radius: 20px;
+}
+
+.signup-form{
+    background-color: white;
+    /* border: 1px solid black; */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: 550px;
+    /* overflow: scroll; */
+}
+
+.input-group-text{
+    width: 13%;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-data{
+    margin-top: -30px;
+}
+
+.signup-inputs{
+    background-color: white;
+    font-size: large;
+    padding: 3px;
+    font-weight: 600;
+    /* border: 1px solid black; */
+}
+
+.signup-label{
+    background-color: white;
+    margin-bottom: 5px;
+}
+
+.signup-email-icon{
+    width: 300px;
+}
+
+span {
+    border: 2px solid black;
+    padding: 0%;
+    margin: 0px;
+    height: 40px;
+    padding: 0;
+}
+
+input{
+    border: 2px solid rgb(144, 140, 140);
+    padding: 0%;
+    margin: 0px;
+    height: 40px;
+    padding: 10px;
+}
+
+.signup-btn{
+    margin-top: -10%;
+}
+
+.login-btn{
+    margin-top: 20px;
+}
+
+.signup-image{
+    background-color: white;
+    /* border: 1px solid black; */
+    object-fit: fill;
+    height: 550px;
+}
+
+.signup-image > img {
+    height: 550px;
+}
+
+.toastify{
+    width: 100px;
+    height: 40px;
+    /* border: 1px solid black; */
+}
+
+.toast-message {
+    color: #fff;
+    font-size: 14px;
+    width: 34vw;
+    padding: 30px 20px;
+    height: 18px;
+}
