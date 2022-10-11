@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import { useAppSelector } from '../../Redux/hook'
+import Calender from '../Calender/Calender'
 import Home from '../Home/Home'
 import './pages.css'
 
@@ -30,6 +31,7 @@ const Pages = () => {
             <div>
               <Routes>
                   <Route path='/' element={<Home />} />
+                  <Route path='/calender' element={<Calender />} />
               </Routes>
             </div>
         </div>
