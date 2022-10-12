@@ -38,7 +38,6 @@ const SignUp = () => {
   }
 
   const handleClick = async () => {
-    dispatch(signUp(register))
 
     await axios.post(api + '/register' , register)
     .then(res => {
@@ -55,9 +54,13 @@ const SignUp = () => {
           className : 'toast-message'
       })
 
+      dispatch(signUp(register))
+      localStorage.setItem('signup', JSON.stringify(store.AuthReducer.signup))
+
       setTimeout(
         validate
       ,2000)
+
     }
     else{
       toast.error('Email and Password needs to be valid !',{
@@ -74,7 +77,8 @@ const SignUp = () => {
 
   }
 
-  localStorage.setItem('login', store.AuthReducer)
+
+  
   // console.log(store.AuthReducer.login)
 
   return (
@@ -103,7 +107,7 @@ const SignUp = () => {
                 <div className='signup-inputs' >
                   <label htmlFor="username" className='signup-label' id='user-name' >Username</label>
                   <div className="input-group mb-3" id='user-name'>
-                    <span className="input-group-text bg-dark " id="basic-addon1"><FaEnvelope className='text-light bg-dark' /></span>
+                    <span className="input-group-text bg-dark input-icon " id="basic-addon1"><FaEnvelope className='text-light bg-dark' /></span>
                     <input type="text" className="form-control" id='username' placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name='username' value={register.username} onChange={handleChange} />
                   </div>
                 </div>
@@ -111,7 +115,7 @@ const SignUp = () => {
                 <div className='signup-inputs' >
                   <label htmlFor="email" className='signup-label' id='email-address' >Email Address</label>
                   <div className="input-group mb-3" id='email-address'>
-                    <span className="input-group-text bg-dark " id="basic-addon1"><FaEnvelope className='text-light bg-dark' /></span>
+                    <span className="input-group-text bg-dark input-icon" id="basic-addon1"><FaEnvelope className='text-light bg-dark' /></span>
                     <input type="text" className="form-control" id='email' placeholder="Email Address" aria-label="Email Address" aria-describedby="basic-addon1" name='email' value={register.email} onChange={handleChange} />
                   </div>
                 </div>   
@@ -119,7 +123,7 @@ const SignUp = () => {
                 <div className='signup-inputs' >
                   <label htmlFor="password" className='signup-label' id='pass-word' >Password</label>
                   <div className="input-group flex-nowrap" id='pass-word'>
-                    <span className="input-group-text bg-dark" id="addon-wrapping"> <FaLock className='text-light bg-dark' /> </span>
+                    <span className="input-group-text bg-dark input-icon" id="addon-wrapping"> <FaLock className='text-light bg-dark' /> </span>
                     <input type="password" id='password' className="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping" name='password' value={register.password} onChange={handleChange} />
                   </div>
                 </div>

@@ -1,9 +1,30 @@
 *{
-  background-color: rgb(221, 224, 227);
+  background-color: white;
   width: 100%;
 }
 
-/* .App{
-  width: 500px;
-  height: 400px;
-} */
+.header{
+  width: 100%;
+  height: 80px;
+  border: 1px solid black;
+}
+
+.sidebar-content{
+  display: grid;
+  grid-template-columns: 17% 80%;
+}
+
+.side-bar{
+  height: 800px;
+  border: 1px solid black;
+}
+
+.header-pages{
+  background-color: rgb(222, 217, 217);
+  padding: 2%;
+}
+
+.signup-login{
+  border:  1px solid black;
+  /* height: 900px; */
+}

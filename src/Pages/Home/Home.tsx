@@ -12,16 +12,13 @@ const Home = () => {
   
   return (
     <div className='home'>
-
-
-
     <div className='overview-newUsers' >
       <h3>Analytics</h3>
       <p>Make data driven decisions using these reports</p>
       <div>
         <div className='overview'>
           <h5 className='bg-white' >Overview</h5>
-          <div className='d-flex bg-white '>
+          <div className='d-flex bg-white overview-headings '>
             <div className='bg-white'>
               <h6 className='bg-white'>Subscribers</h6>
               <p className='bg-white'>786</p>

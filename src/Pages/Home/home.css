@@ -2,6 +2,7 @@
     width: 100%;
     /* border: 1px solid rgb(238, 88, 88); */
     /* height: max-content; */
+    background-color: rgb(222, 217, 217);
 }
 
 .home > div{
@@ -27,9 +28,6 @@
     gap: 20px;
 }
 
-.overview-newUsers > h3{
-    margin-top: -25px;
-}
 
 .overview {
     background-color: white;
@@ -44,7 +42,7 @@
     display: flex;
     justify-content: left;
     align-items: center;
-    gap: -30%;
+    /* gap: -30%; */
     padding-left: 5%;
     padding-top: 2%;
 }
@@ -93,6 +91,66 @@
 }
 
 
+@media screen and (max-width : 1280px ) {
+
+    .overview-newUsers > div{
+        display: grid;
+        grid-template-columns: 80%;
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+        gap: 20px;
+    }
+
+    .newusers{
+        /* border: 1px solid black; */
+        height: 800px;
+        width: 100%;
+        background-color: white;
+    }
+    .newusers > div{
+        /* border: 3px solid pink; */
+        height: 150px;
+    }
+}
+
+@media screen and (max-width : 450px ) {
+    .overview-headings{
+        display: flex;
+        flex-direction: column;
+        /* border: 1px solid black; */
+    }
+
+    .overview-graph{
+        height: 100px;
+    }
+    
+    .chart{
+        width: 100%;
+        /* border: 1px solid black; */
+    }
+
+    .overview-newUsers > div{
+        display: grid;
+        grid-template-columns: 100%;
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+        gap: 20px;
+    }
+
+    .newusers > div > div{
+        display: grid;
+        grid-template-columns: 80%;
+        height: 150px;
+    }
+    .newuser-first-chart{
+        display: none;
+    }
+    .newuser-sec-chart{
+        display: none;
+    }
+}
 
 /* ---------------------ResourceBooking--------------------- */
 
@@ -130,6 +188,24 @@
     height: 300px;
 } */
 
+@media screen and (max-width : 450px) {
+    .resourceBooking > div{
+        display: grid;
+        grid-template-columns: 100%;
+        padding: 40px;
+        /* border: 1px solid black; */
+        gap: 10px;
+        margin-top: -20px;
+        margin-left: -20px;
+        /* height: 300px; */
+    }
+    .resourceBooking-One{
+        width: 100%;
+    }
+    .resourceBooking-Two{
+        width: 100%;
+    }
+}
 
 /* -------------------revenue------------------- */
 
@@ -159,6 +235,17 @@
 
 .revenue-chart{
     width: 20%;
+}
+
+@media screen and (max-width : 450px) {
+    .revenue > div{
+        display: grid;
+        grid-template-columns: 100%;
+        justify-content: space-around;
+        align-items: center;
+        margin: auto auto;
+        height: max-content;
+    }
 }
 
 
@@ -221,6 +308,58 @@
     margin: 20px auto;
 }
 
+
+@media screen and (max-width : 1280px ) {
+
+    .invoiceRevenue-specs > div{
+        width: 400px;
+        height: 75px;
+        /* border: 1px solid black; */
+        background-color: antiquewhite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: grey;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+
+}
+
+@media screen and (max-width : 450px ) {
+
+    .invoiceRevenue-specs > div{
+        width: 200px;
+        height: 75px;
+        /* border: 1px solid black; */
+        background-color: antiquewhite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: grey;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .invoiceRevenue-specs{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* background-color: grey; */
+        gap: 10%;
+    }
+
+    .invoice-chart{
+        width: 100%;
+        margin: 20px auto;
+    }
+
+}
+
 /* ----------revenueBreakDownPlan--------- */
 
 .revenueBreakDownPlan{
@@ -246,4 +385,8 @@
 .breakdown-chart{
     background-color: white;
     width: 100%;
+}
+
+@media screen and (max-width : 450px) {
+    
 }
