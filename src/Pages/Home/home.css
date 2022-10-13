@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alkalami&family=Secular+One&display=swap');
+
+
 .home{
     width: 100%;
     /* border: 1px solid rgb(238, 88, 88); */
@@ -19,21 +23,49 @@
     margin-top: 3%;
 }
 
-.overview-newUsers > div{
+.overview-newUsers-headings{
+    /* border: 3px solid black; */
+    /* height: 200px; */
+    margin-bottom: 20px;
+    background-color: rgb(222, 217, 217);
+    font-family: 'Alkalami', serif;
+    font-family: 'Secular One', sans-serif;
+
+}
+
+.overview-newUsers-headings > h3, .overview-newUsers-headings > p{
+    background-color: rgb(222, 217, 217);
+}
+
+.overview-newUsers{
+    background-color: rgb(222, 217, 217);
+}
+
+.overview-newUsers > .inside-overview-newUsers{
     display: grid;
     grid-template-columns: 60% 40%;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    height: 520px;
     gap: 20px;
+    font-family: 'Secular One', sans-serif;
+    background-color: white;
 }
 
+.inside-overview-newUsers{
+    background-color: rgb(222, 217, 217);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+}
 
 .overview {
-    background-color: white;
+    /* background-color: white; */
     /* border: 1px solid black; */
     margin: 15px;
-    padding: 10px;
+    /* padding: 10px; */
     overflow: hidden;
     /* margin-top: -18%; */
 }
@@ -61,14 +93,14 @@
 .newusers{
     /* border: 1px solid black; */
     height: 500px;
-    margin-top: -20px;
+    /* margin-top: -20px; */
     width: 90%;
     background-color: white;
 }
 
 .newusers > div{
     /* border: 1px solid black; */
-    height: 90px;
+    height: 80px;
     background-color: white;
 }
 
@@ -93,7 +125,7 @@
 
 @media screen and (max-width : 1280px ) {
 
-    .overview-newUsers > div{
+    .overview-newUsers > .inside-overview-newUsers{
         display: grid;
         grid-template-columns: 80%;
         justify-content: center;
@@ -126,20 +158,29 @@
         height: 100px;
         margin-top: -5px;
     }
+
+    .overview{
+        padding: none;
+        /* margin-top: 60px; */
+        /* border: 1px solid black; */
+        margin-left: -1px;
+        height: 300px;
+    }
     
     .chart{
         width: 100%;
         /* border: 1px solid black; */
     }
 
-    .overview-newUsers > div{
+    .overview-newUsers > .inside-overview-newUsers{
         display: grid;
         grid-template-columns: 100%;
         justify-content: center;
         align-items: center;
         height: fit-content;
-        gap: 20px;
-        height: 1200px;
+        gap: 10px;
+        padding: none;
+        height: 1300px;
     }
 
     .newusers{

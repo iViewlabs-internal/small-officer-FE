@@ -5,7 +5,7 @@ import { api } from '../../Api/sourceApi'
 import { addUsers } from '../../Redux/Actions/Pages'
 import { useAppDispatch, useAppSelector } from '../../Redux/hook'
 import './profile.css'
-import ReactLoading from 'react-loading';
+// import ReactLoading from 'react-loading';
 import { useNavigate } from 'react-router-dom'
 
 const User = () => {
@@ -75,13 +75,13 @@ const User = () => {
             </thead>
             <tbody>
                 {
-                    !users ? 
-                    <ReactLoading type={'spinningBubbles'} color='#000' />
-                     : 
+                    // !users ? 
+                    // <ReactLoading type={'spinningBubbles'} color='#000' />
+                    //  : 
                      
                      search ? 
 
-                    user.map((item : any, index : any) => {
+                    user.map((item : any, index : number) => {
                         return (
                             <>
                             <tr className='user-headers'>

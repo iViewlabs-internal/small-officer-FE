@@ -55,7 +55,7 @@ const SignUp = () => {
       })
 
       dispatch(signUp(register))
-      localStorage.setItem('signup', JSON.stringify(store.AuthReducer.signup))
+      localStorage.setItem('signup', JSON.stringify(register))
 
       setTimeout(
         validate

@@ -1,5 +1,6 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Route, Routes, useNavigate } from 'react-router-dom'
+import Header from '../components/Header/Header'
 import Sidebar from '../components/Sidebar/Sidebar'
 import Calender from './Calender/Calender'
 import Chat from './Chat/Chat'
@@ -18,14 +19,28 @@ import Resources from './Resources/Resources'
 
 
 const Pages = () => {
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+  
+    if(localStorage.getItem('signup') && !localStorage.getItem('login')){
+      navigate('/login')
+    }
+    else if(!localStorage.getItem('signup') && !localStorage.getItem('login')){
+      navigate('signup')
+    }
+  },[])
+
   return (
-    <div>
       <div className='sidebar-content' >
         <div className='side-bar'>
           <Sidebar />
         </div>
         <div className='header-pages'>
-          <div className='header'>Header</div>
+          <div className='header'>
+            <Header />
+          </div>
           <div className='pages'>
             <Routes>
               <Route path='/' element={<Home />} />
@@ -48,7 +63,6 @@ const Pages = () => {
           </div>
         </div>
       </div>
-    </div>
   )
 }
 

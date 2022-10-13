@@ -1,0 +1,89 @@
+.main-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+
+.logo-image{
+    width: 120px;
+    /* border: 1px solid black; */
+    
+}
+
+.logo{
+    /* border: 1px solid black; */
+    margin: auto 10%;
+}
+
+.header-username{
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: -10px;
+
+    width: 50%;
+    margin-right: 5%;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+}
+
+.header-username > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    border: 1px solid rgb(209, 185, 185);
+    background-color: rgb(112, 94, 94);
+    border-radius: 100%;
+    margin: auto auto;
+    gap: -10%;
+    font-weight: 400;
+    font-size: larger;
+}
+
+.header-username > div > p{
+    /* border: 2px solid rgb(209, 185, 185); */
+    background-color: rgb(112, 94, 94);
+    color: white;
+    /* border-radius: 50%; */
+    /* width: 100%; */
+    width: 15px;
+    margin-top: 15px;
+    font-weight: 200;
+    text-align: center;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.header-username > h4{
+    /* border: 1px solid black; */
+    width: 100%;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 400;
+    margin-top: 8px;
+    margin-left: 5px;
+}
+
+@media screen and (max-width : 500px) {
+    .header-username{
+        width: 100%;
+    }
+
+    .header-username > div > p{
+        background-color: rgb(112, 94, 94);
+        color: white;
+        width: 12px;
+        margin-top: 15px;
+        font-weight: 200;
+        text-align: center;
+        font-family:'Courier New', Courier, monospace;
+    }
+
+    .header-username > h4{
+        font-size: 18px;
+    }
+}

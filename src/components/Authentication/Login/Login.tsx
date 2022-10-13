@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 const SignIn = () => {
 
   const [login, setLogin] = useState({
-    username : "",
+    email : "",
     password : ""
   })
 
@@ -49,7 +49,7 @@ const SignIn = () => {
       }) 
 
       dispatch(signIn(login))
-        localStorage.setItem('login', JSON.stringify(store.AuthReducer.login))
+        localStorage.setItem('login', JSON.stringify(login))
 
         setTimeout(
                 validate
@@ -141,10 +141,10 @@ const SignIn = () => {
             <div className='signup-data' >
 
                 <div className='signup-inputs' >
-                  <label htmlFor="username" className='signup-label' id='user-name' >Username</label>
+                  <label htmlFor="username" className='signup-label' id='user-name' >Email</label>
                   <div className="input-group mb-3" id='user-name'>
                     <span className="input-group-text bg-dark " id="basic-addon1"><FaEnvelope className='text-light bg-dark' /></span>
-                    <input type="text" className="form-control" id='username' placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name='username' value={login.username} onChange={handleChange} />
+                    <input type="text" className="form-control" id='username' placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name='email' value={login.email} onChange={handleChange} />
                   </div>
                 </div>
 
