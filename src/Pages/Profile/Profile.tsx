@@ -7,7 +7,7 @@ import { useAppSelector } from '../../Redux/hook'
 
 const Profile = () => {
 
-    const param = useParams()
+    const param : any = useParams()
 
     const store = useAppSelector(state => state)
 
@@ -15,13 +15,44 @@ const Profile = () => {
 
    console.log(data)
 
-    console.log(param)
-  return (
+    console.log(param.id)
+    const id = param.id
+
+    const [addUserData, setAddUserData] = useState({
+      firstname : "",
+      lastname : "",
+      about : "",
+      company : "",
+      position : "",
+      cityname : "",
+      data : ""
+    })
+
+    const displayData = data.filter((item : any, index : number) => index === +id)[0]
+
+
+    console.log(displayData.firstname + displayData.lastname)
+
+    const date = new Date()
+
+    const handleChange = (e : React.ChangeEvent<HTMLInputElement>) => {
+
+      const {name, value} = e.currentTarget
+      
+      setAddUserData(prevData => ({
+        ...prevData,
+        [name] : value
+      }) )
+
+    }
+
+    console.log(addUserData)
+
+  return  (
     <div>
-      <User />
-      {
+
         
-      }
+
     </div>
   )
 }

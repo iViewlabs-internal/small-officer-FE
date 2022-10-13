@@ -7,16 +7,20 @@
   width: 100%;
   height: 80px;
   border: 1px solid black;
+  margin: auto auto;
 }
 
 .sidebar-content{
   display: grid;
-  grid-template-columns: 17% 80%;
+  grid-template-columns: 10% 80%;
+  gap: 10%;
 }
 
 .side-bar{
-  height: 800px;
-  border: 1px solid black;
+  height: 740px;
+  /* border: 1px solid black;
+  background-color: white; */
+  /* position: fixed; */
 }
 
 .header-pages{

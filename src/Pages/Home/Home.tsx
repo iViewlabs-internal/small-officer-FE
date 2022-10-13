@@ -113,15 +113,15 @@ const Home = () => {
           </div>
         </div>
         <div className='revenue-card'>
-          <div className='bg-white'>
-              <p>Forecasted plan revenue</p>
-              <h4>8051 $</h4>
+            <div className='bg-white'>
+                <p>Forecasted plan revenue</p>
+                <h4>8051 $</h4>
             </div>
             <div>
               <Revenue />
               <p className='text-danger'>+ 5.05%</p>
             </div>
-          </div>
+        </div>
         <div className='revenue-card'>
           <div>
               <p>Revenue growth</p>
@@ -131,7 +131,7 @@ const Home = () => {
               <Revenue />
               <p className='text-success'>+ 21.16%</p>
             </div>
-          </div>
+        </div>
         <div className='revenue-card'>
           <div>
               <h4>Show more</h4>
@@ -140,7 +140,7 @@ const Home = () => {
               <Revenue />
               <p className='text-danger'>+ 5.05%</p>
             </div>
-          </div>
+        </div>
       </div>
     </div>
 
@@ -201,40 +201,6 @@ const Home = () => {
         <RevenueBreakdown />
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      {/* <div className='graph-upper-section' >
-        <div className='graph' >
-          <p>Overviews</p>   
-          <Graph />
-        </div>
-        <div className='newUsers' >
-          <p>New users</p>
-        </div>
-      </div>
-      <div className='graph-down-section'>
-        <p>Resource Booking</p>
-        <div className='resource-booking' >
-          <div className='first-resouce' >
-              <Chart />
-          </div>
-          <div className='second-resource'>
-              <Chart />
-          </div>
-        </div>
-      </div> */}
     </div>
   )
 }

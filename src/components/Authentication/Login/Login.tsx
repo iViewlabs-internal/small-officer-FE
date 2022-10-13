@@ -37,8 +37,31 @@ const SignIn = () => {
     
 
     await axios.post(api + '/login' , login)
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
+    .then(res => {
+
+      const validate = () => {
+            navigate('/')
+          }
+
+      toast.success('User Loggedin successfully !',{
+        position :toast.POSITION.TOP_RIGHT,
+        className : 'toast-message'
+      }) 
+
+      dispatch(signIn(login))
+        localStorage.setItem('login', JSON.stringify(store.AuthReducer.login))
+
+        setTimeout(
+                validate
+              ,2000)
+
+    })
+    .catch(err => toast.error('Enter Valid credentials',{
+        position : toast.POSITION.TOP_RIGHT,
+        className : 'toast-message'
+      }))
+
+      
     //   console.log(res)
       
     //   const validate = () => {

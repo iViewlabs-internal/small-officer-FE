@@ -19,6 +19,7 @@ import AllResources from './Pages/Resources/AllResources';
 import InvoiceItems from './Pages/Resources/InvoiceItems';
 import Payments from './Pages/Resources/Payments';
 import User from './Pages/Profile/User';
+import Pages from './Pages/Pages';
 
 function App() {
 
@@ -30,6 +31,12 @@ function App() {
 
   console.log(param)
 
+
+  // signup --- token -- localstorage 
+  //login --- token - localstorage
+
+  // signup && login --- sidebar-content : signup-login
+
   return (
     <div className="App">
       <div className='signup-login' >
@@ -38,31 +45,7 @@ function App() {
         <Route path='/login' element={<Login />} />
       </Routes>
       </div>
-      <div className='sidebar-content' >
-        <div className='side-bar'>
-          <Sidebar />
-        </div>
-        <div className='header-pages'>
-          <div className='header'>Header</div>
-          <div className='pages'>
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/calender' element={<Calender />} />
-              <Route path='/chat' element={<Chat />} />
-              <Route path='/user/1' element={<Profile />} />
-              <Route path='/user' element={<User />} />
-              <Route path='/community' element={<Community />} />
-              <Route path='/community/announcements' element={<Announcements />} />
-              <Route path='/community/infoPage' element={<InfoPage />} />
-              <Route path='/plans' element={<Plans />} />
-              <Route path='/resources' element={<Resources />} />
-              <Route path='/resources/allResources' element={<AllResources />} />
-              <Route path='/resources/invoiceItems' element={<InvoiceItems />} />
-              <Route path='//resources/payments' element={<Payments />} />
-            </Routes>
-          </div>
-        </div>
-      </div>
+      <Pages />
     </div>
   );
 }

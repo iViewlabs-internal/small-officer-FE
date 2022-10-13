@@ -8,22 +8,28 @@ import * as IoIcons from 'react-icons/io';
 import * as RiIcons from 'react-icons/ri';
 import {SidebarData} from './SidebarData'
 import SubMenu from './SubMenu';
+import useWindowDimensions from './useWindowDimensions';
 
 const Nav = styled.div`
-  background : rgb(234, 231, 231);
+  background : white;
   height : 80px;
-  display : flex;
+  display : grid;
+  grid-template-columns: 80%;
   justify-content : center;
   align-items : center;
+  text-align: center;
+  padding : 20px;
 `
 
 const NavIcon = styled(Link)`
   font-size : 2rem;
   height : 80px;
+  width : 40px;
   display : flex;
   justify-content : flex-start;
   align-items : center;
   float : right;
+  background-color : white;
 `;
 
 const SidebarNav = styled.nav`
@@ -41,7 +47,34 @@ const SidebarNav = styled.nav`
 
 const SidebarWrap = styled.div`
   width : 100%;
+  display : grid;
+  grid-template-columns: 80%;
+  justify-content : center;
+  align-items : center;
+
 `;
+
+const Icons = styled.div`
+  display:grid;
+  grid-template-columns: 30px;
+  align-items : center;
+  gap: 20px;
+  height : 60px;
+  text-decoration : none;
+  color:black;
+  margin-left : -10px;
+
+  `;
+
+  const SidebarNavHighWidth = styled.div`
+  background : white;
+  width : 200px;
+  height : 100vh;
+  position : fixed;
+  top : 10;
+  transition : 350ms;
+  z-index : 10;
+  `
 
 
 const Sidebar = () => {
@@ -50,12 +83,31 @@ const Sidebar = () => {
 
   const showSidebar = () => setSidebar(!sidebar)
 
+  
+  
+  const wid = useWindowDimensions().width
+
+  console.log(wid)
+
+
   return (
     <>
+      {
+        wid < 800 ? <>
+        
       <Nav>
         <NavIcon to='#' >
           <FaIcons.FaBars className='fabarsIcon' onClick={showSidebar}  />
         </NavIcon>
+        <Icons>
+        {
+          SidebarData.map((item,index) => {
+            return <div >{item.icon}</div>
+        
+          })
+        }
+        </Icons>
+        {/* </div> */}
       </Nav>
       <SidebarNav sidebar={sidebar} >
         <SidebarWrap>
@@ -67,6 +119,17 @@ const Sidebar = () => {
         })}
         </SidebarWrap>
       </SidebarNav>
+
+        </>
+        :
+        <>
+        <SidebarNavHighWidth>
+        {SidebarData.map((item, index) => {
+          return <SubMenu item={item} key={index} />
+        })}
+        </SidebarNavHighWidth>
+        </>
+      }
     </>
   )
 }
