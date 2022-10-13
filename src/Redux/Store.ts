@@ -1,9 +1,11 @@
 import { AuthReducer } from "./Reducers/AuthReducer";
 import {combineReducers} from 'redux'
 import {configureStore} from '@reduxjs/toolkit'
+import { PagesReducer } from "./Reducers/PagesReducer";
 
 const reducer = combineReducers({
-    AuthReducer : AuthReducer
+    AuthReducer : AuthReducer,
+    PagesReducer : PagesReducer
 })
 
 export const Store = configureStore({reducer})

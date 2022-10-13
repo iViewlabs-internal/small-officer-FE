@@ -34,29 +34,87 @@ const SignIn = () => {
   }
 
   const handleClick = async () => {
-    dispatch(signIn(login))
+    
 
     await axios.post(api + '/login' , login)
     .then(res => {
 
       const validate = () => {
-        navigate('/')
-      }
-        toast.success('User Loggedin successfully !', {
-          position: toast.POSITION.TOP_RIGHT,
-          className : 'toast-message'
-        })
+            navigate('/')
+          }
+
+      toast.success('User Loggedin successfully !',{
+        position :toast.POSITION.TOP_RIGHT,
+        className : 'toast-message'
+      }) 
+
+      dispatch(signIn(login))
+        localStorage.setItem('login', JSON.stringify(store.AuthReducer.login))
 
         setTimeout(
-          validate
-        ,2000)
+                validate
+              ,2000)
 
     })
     .catch(err => toast.error('Enter Valid credentials',{
-      position : toast.POSITION.TOP_RIGHT,
-      className : 'toast-message'
-    }))
+        position : toast.POSITION.TOP_RIGHT,
+        className : 'toast-message'
+      }))
+
+      
+    //   console.log(res)
+      
+    //   const validate = () => {
+    //     navigate('/')
+    //   }
+    //     toast.success('User Loggedin successfully !', {
+    //       position: toast.POSITION.TOP_RIGHT,
+    //       className : 'toast-message'
+    //     })
+
+    //     dispatch(signIn(login))
+    //     localStorage.setItem('login', JSON.stringify(store.AuthReducer.login))
+
+    //     setTimeout(
+    //       validate
+    //     ,2000)
+
+    // })
+    // .catch(err => toast.error('Enter Valid credentials',{
+    //   position : toast.POSITION.TOP_RIGHT,
+    //   className : 'toast-message'
+    // }))
   
+
+    // const validate = () => {
+    //       navigate('/')
+    //     }
+
+    //     const signupdata : any = localStorage.getItem('signup')
+    //     const data = JSON.parse(signupdata)
+    //     console.log(data)
+
+    //     if(data.username === login.username && data.password === login.password){
+
+    //       toast.success('User Loggedin successfully !', {
+    //         position: toast.POSITION.TOP_RIGHT,
+    //         className : 'toast-message'
+    //       })
+  
+    //       dispatch(signIn(login))
+    //       localStorage.setItem('login', JSON.stringify(store.AuthReducer.login))
+  
+    //       setTimeout(
+    //         validate
+    //       ,2000)
+
+    //     }
+
+    //     else{
+    //       alert('Enter valid credentials')
+    //     }
+
+
   }
 
   console.log(store.AuthReducer.login)
