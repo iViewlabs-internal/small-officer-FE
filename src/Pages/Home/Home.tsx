@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { FaArrowAltCircleUp, FaArrowCircleLeft, FaCalendar, FaGripLines, FaLocationArrow, FaWifi } from 'react-icons/fa';
 import InvoicedRevenue from './Graph/InvoicedRevenue';
 import NewUsers, { ChartSecond } from './Graph/NewUsers';
@@ -9,6 +9,10 @@ import RevenueBreakdown from './Graph/RevenueBreakdown';
 import './home.css';
 
 const Home = () => {
+
+  useEffect(() => {
+
+  },[])
   
   return (
     <div className='home'>

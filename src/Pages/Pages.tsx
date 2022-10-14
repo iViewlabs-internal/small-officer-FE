@@ -8,6 +8,7 @@ import Announcements from './Community/Announcements'
 import Community from './Community/Community'
 import InfoPage from './Community/InfoPage'
 import Home from './Home/Home'
+import AddPlan from './Plans/AddPlan'
 import Plans from './Plans/Plans'
 import AddUser from './Profile/AddUser'
 import Profile from './Profile/Profile'
@@ -22,6 +23,8 @@ const Pages = () => {
 
   const navigate = useNavigate()
 
+
+
   useEffect(() => {
   
     if(localStorage.getItem('signup') && !localStorage.getItem('login')){
@@ -30,6 +33,7 @@ const Pages = () => {
     else if(!localStorage.getItem('signup') && !localStorage.getItem('login')){
       navigate('signup')
     }
+
   },[])
 
   return (
@@ -46,8 +50,6 @@ const Pages = () => {
               <Route path='/' element={<Home />} />
               <Route path='/calender' element={<Calender />} />
               <Route path='/chat' element={<Chat />} />
-              
-              
               <Route path='/user' element={<User />} />
               <Route path='/user/addUser' element={<AddUser />} />
               <Route path='/user/:id' element={<Profile />} />
@@ -55,6 +57,7 @@ const Pages = () => {
               <Route path='/community/announcements' element={<Announcements />} />
               <Route path='/community/infoPage' element={<InfoPage />} />
               <Route path='/plans' element={<Plans />} />
+              <Route path='/addPlan' element={<AddPlan/>} />
               <Route path='/resources' element={<Resources />} />
               <Route path='/resources/allResources' element={<AllResources />} />
               <Route path='/resources/invoiceItems' element={<InvoiceItems />} />

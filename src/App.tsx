@@ -35,19 +35,17 @@ function App() {
   const [render, setRender] = useState(false)
 
 
+  
   useEffect(() => {
-    if(window.location.href === "http://localhost:3001/login" || window.location.href === "http://localhost:3001/signup"){
+    if(window.location.pathname === "/login" || window.location.pathname === "/signup"){
       setRender(false)
     } 
     else{
       setRender(true)
     }
-  },[render])
+  },[window.location.pathname])
 
-  // signup --- token -- localstorage 
-  //login --- token - localstorage
-
-  // signup && login --- sidebar-content : signup-login
+  console.log(render)
 
   return (
     <div className="App">

@@ -6,7 +6,7 @@ export const addUsers = (payload : {}) => ({
         payload
 })
 
-export const render = (payload : "") => ({
+export const render = (payload : any) => ({
         type : RENDER,
         payload
 })

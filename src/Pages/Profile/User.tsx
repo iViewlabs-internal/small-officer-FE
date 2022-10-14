@@ -26,7 +26,7 @@ const User = () => {
 
 
     const fetchUsersData = async () => {
-        axios.get(api + '/addUser')
+        axios.get(api + '/AddUser')
         .then(res => dispatch(addUsers(res.data)))
         .catch(err => console.log(err))
     }
@@ -39,8 +39,9 @@ const User = () => {
         setSearch(e.currentTarget.value)
     }
 
-    const user = users.filter((item : any,index : number) => item.firstname === search )
+    const user = users.filter((item : any,index : number) => item.firstname.toLowerCase() === search )
 
+    
     console.log(user)
 
     // console.log(users)
@@ -87,7 +88,7 @@ const User = () => {
                             <tr className='user-headers'>
                                 <td><input type='checkbox' className='user-checkbox'/></td>
                                 <td className='user-name'><Link to={`/user/${index}`} className='user-name' >{item.firstname} {item.lastname}</Link></td>
-                                <td>Ahmedabad</td>
+                                <td>{item.city}</td>
                                 <td className='text-success' >Active</td>
                                 <td>{item.date}</td>
                             </tr>

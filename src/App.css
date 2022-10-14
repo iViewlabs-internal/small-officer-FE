@@ -32,3 +32,21 @@
   border:  1px solid black;
   /* height: 900px; */
 }
+
+@media screen and (max-width : 1250px) {
+  .sidebar-content{
+    display: grid;
+    grid-template-columns: 10% 80%;
+    gap: 10%;
+  }
+  
+}
+
+@media screen and (max-width : 500px) {
+  .sidebar-content{
+    display: grid;
+    grid-template-columns: 10% 90%;
+    gap: 0%;
+  }
+  
+}

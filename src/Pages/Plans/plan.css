@@ -1,0 +1,61 @@
+.add-plan-page{
+    background-color: rgb(222, 217, 217);
+    /* border: 1px solrgb(0, 0, 0)ack; */
+    margin: 5% auto;
+    width: 100%;
+}
+
+.create-plan > p, .create-plan > h4, .create-plan{
+    background-color: rgb(222, 217, 217);
+    /* border: 1px solid black; */
+}
+
+.add-Plan-form{
+    /* width: 60%; */
+    height: fit-content;
+    background-color: rgb(222, 217, 217);
+    border: 1px solid black;
+    margin: 1% auto;
+    display: grid;
+    grid-template-columns: 80%;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10%;
+}
+
+.inside-add-plan-form{
+    margin: 1%;
+    border: 1px solid black;
+    padding: 5%;
+}
+
+.billing-preference{
+    background-color: rgb(222, 217, 217);
+    margin-top: 4%;
+}
+
+.billing-preference > h5{
+    background-color: rgb(222, 217, 217);
+    padding-left: 1%;
+}
+
+.add-plan-page > .create-plan{
+    display: grid;
+    grid-template-columns: 10% 90%;
+    justify-content: center;
+    /* border: 1px solid black; */
+    align-items: center;
+}
+
+.back-arrow{
+    background-color: rgb(222, 217, 217);
+}
+
+.form-control{
+    background: rgb(222, 217, 217)!important;
+}
+
+.main-plan{
+    background-color: rgb(222, 217, 217);
+    width: 100%;
+}

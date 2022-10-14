@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import User from './User'
 import axios from 'axios'
 import { api } from '../../Api/sourceApi'
@@ -15,8 +15,19 @@ const AddUser = () => {
 
    console.log(data)
 
+   const navigate = useNavigate()
+
     console.log(param.id)
     const id = param.id
+
+    // profileimage: profileimage,
+    // firstname: firstname,
+    // lastname: lastname,
+    // about: about,
+    // company: company,
+    // position: position,
+    // cityname: cityname,
+    // date: date
 
     const [addUserData, setAddUserData] = useState({
       firstname : "",
@@ -45,16 +56,28 @@ const AddUser = () => {
 
     }
 
-    useEffect(() => {
-        axios.post(api + '/addUser' , addUserData)
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
-    })
-
     console.log(addUserData)
+
+    const AddUserData = () => {
+      axios.post(api + '/addUser' , addUserData)
+        .then(res => navigate('/user'))
+        .catch(err => console.log(err))
+    }
+
+    // useEffect(() => {
+    //     AddUserData()
+    // },[])
+
+    
 
   return (
     <div className='add-User-form' >
+
+      {/* <div className="mb-3">
+        <label htmlFor="exampleFormControlInput8" className="form-label">Upload Profile Image</label>
+        <input type="file" className="form-control" id="exampleFormControlInput8" name='profileimage' value={addUserData.profileimage}  onChange={handleChange} />
+      </div> */}
+
       {/* firstname */}
 
       <div className="mb-3">
@@ -99,11 +122,11 @@ const AddUser = () => {
 
       <div className="mb-3">
         <label htmlFor="exampleFormControlInput7" className="form-label">Date</label>
-        <input type="text" className="form-control" id="exampleFormControlInput7" name='date' value={addUserData.date}  onChange={handleChange} />
+        <input type="date" className="form-control" id="exampleFormControlInput7" name='date' value={addUserData.date}  onChange={handleChange} />
       </div>
 
       <div className='mb-3 add-data'>
-        <button className='btn bg-primary text-white add-data'> Add Data </button>
+        <button className='btn bg-primary text-white add-data' onClick={AddUserData}> Add Data </button>
       </div>
 
     </div>

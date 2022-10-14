@@ -5,25 +5,35 @@ import './header.css'
 
 const Header = () => {
 
-    const name =  "Bhavisha Nayi"
+  const da : any = localStorage.getItem('signup') ? localStorage.getItem('signup') : ' '
+
+  console.log(da)  
+  const username = JSON.parse(da).username
+
+
+    // const name =  "Bhavisha Nayi"
     //  |localStorage.getItem('signup')
 
-    const alphabetList = name.split(" ")
+    const alphabetList = username.split(" ")
 
     const firstalphanets = alphabetList.map((item : any) => <p>{item[0]}</p>)
+    
+    
 
-    console.log(alphabetList)
+    // console.log(username)
+
+    // console.log(alphabetList)
 
   return (
     <div className='main-header'>
-        <div className='logo'><Link to={'/'}><img src={logo} alt='logo' className='logo-image' /></Link></div>
+        <div className='logo'><Link to={'/home'}><img src={logo} alt='logo' className='logo-image' /></Link></div>
         <div className='header-username'>
              <div>
              {
                 firstalphanets
              }
              </div>
-             <h4>Bhavisha Nayi</h4>
+             <h4>{username}</h4>
         </div>
     </div>
   )
