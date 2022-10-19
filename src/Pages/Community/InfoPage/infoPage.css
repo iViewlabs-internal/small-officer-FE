@@ -1,0 +1,59 @@
+.addInfo{
+    width: 100%;
+    background-color: rgb(222, 217, 217);
+    margin: 30px 0px;
+    padding: 20px;
+}
+
+.info{
+    /* margin-top: 1%; */
+}
+
+.addInfo-head{
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    background-color: rgb(222, 217, 217);
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.SaveInfoBtn{
+    width: 20%;
+}
+
+.add-inputs{
+    padding: 40px;
+    margin: 20px 0px;
+}
+
+.info-inputs{
+    display: grid;
+    grid-template-columns: 90%;
+    justify-content: center;
+    align-items: center;
+    margin: 3% 0px;
+}
+
+.info-textarea{
+    height: 70px;
+}
+
+.info-edits{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.info-delete{
+    /* border: 1px solid black; */
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+}
+
+@media screen and (max-width : 700px) {
+    .SaveInfoBtn{
+        width: 30%;
+    }
+}

@@ -21,6 +21,7 @@ import { useAppSelector } from './Redux/hook';
 // import User from './Pages/Profile/User';
 import Pages from './Pages/Pages';
 import { useEffect, useState } from 'react';
+import { registerLicense } from '@syncfusion/ej2-base';
 
 function App() {
 
@@ -34,40 +35,28 @@ function App() {
 
   const [render, setRender] = useState(false)
 
+  // registerLicense('License Key');
+
 
   
-  useEffect(() => {
-    if(window.location.pathname === "/login" || window.location.pathname === "/signup"){
-      setRender(false)
-    } 
-    else{
-      setRender(true)
-    }
-  },[window.location.pathname])
+  // useEffect(() => {
+  //   if(window.location.pathname === "/login" || window.location.pathname === "/signup"){
+  //     setRender(false)
+  //   } 
+  //   else{
+  //     setRender(true)
+  //   }
+  // },[window.location.pathname])
 
   console.log(render)
 
   return (
     <div className="App">
-      {/* {
-        render ? */}
-     <div className='signup-login' >
       <Routes>
-        <Route path='/signUp' element={<SignUp />} />
+        <Route path='/signup' element={<SignUp />} />
         <Route path='/login' element={<Login />} />
+        <Route path='*' element={<Pages />} />
       </Routes>
-      </div>
-      
-      <div className='allPages'>
-          {
-            render
-            ?
-        <Pages />
-        :
-        ""
-          }
-        </div>
-        {/* // } */}
     </div>
   );
 }

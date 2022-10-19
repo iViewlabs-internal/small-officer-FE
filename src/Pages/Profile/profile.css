@@ -26,12 +26,14 @@
 
 .users-table{
     width: 100%;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .add-users-search{
-    width: 30%;
+    width: 60%;
     padding: 10px;
     border-radius: 10px;
+    background-color: white;
 }
 
 .search-box{
@@ -57,7 +59,7 @@
 
 .user-headers{
     display: grid;
-    grid-template-columns: 4% 33% 20% 20% 20%;
+    grid-template-columns: 33% 20% 20% 20%;
     /* border: 1px solid black; */
     justify-content: center;
     align-items: center;
@@ -178,5 +180,34 @@
         grid-template-columns: 80%;
         gap:10%;
     }
+
+    .users-table{
+        width: 100%;
+    }
+
+    .user-headers > th{
+        width: 40px;
+        font-size: 14px;
+    }
+
+    .user-headers > td{
+        width: 40px;
+        font-size: 14px;
+    }
+    
+    .user-name{
+        font-size: medium;
+    }
+
+    .add-User-form{
+        padding: 20px;
+        margin: 20px;
+        width: 100%;
+    }
+    
+    .add-User-form > div{
+        width: 70%;
+    }
+    
 }
 

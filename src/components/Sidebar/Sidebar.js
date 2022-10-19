@@ -1,7 +1,7 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import './sidebar.css';
 import styled from 'styled-components';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
@@ -83,9 +83,22 @@ const Sidebar = () => {
 
   const showSidebar = () => setSidebar(!sidebar)
 
+  const navigate = useNavigate()
+
   
   
   const wid = useWindowDimensions().width
+
+  const logout = () => {
+    localStorage.removeItem('login')
+    navigate('/login')
+  }
+
+  const signout = () => {
+    localStorage.removeItem('signup')
+    localStorage.removeItem('login')
+    navigate('/signup')
+  }
 
   console.log(wid)
 
@@ -117,6 +130,8 @@ const Sidebar = () => {
         {SidebarData.map((item, index) => {
           return <SubMenu item={item} key={index} />
         })}
+        <button onClick={logout} className='auth-btn btn'>Logout</button>
+        <button onClick={signout} className='auth-btn btn'>SignOut</button>
         </SidebarWrap>
       </SidebarNav>
 
@@ -127,6 +142,8 @@ const Sidebar = () => {
         {SidebarData.map((item, index) => {
           return <SubMenu item={item} key={index} />
         })}
+        <button onClick={logout} className='auth-btn btn'>Logout</button>
+        <button onClick={signout} className='auth-btn btn'>SignOut</button>
         </SidebarNavHighWidth>
         </>
       }

@@ -29,7 +29,7 @@ export const SidebarData = [
     },
     {
         title : 'Community',
-        path : '/community',
+        path : '/community/announcements',
         icon : <RiIcons.RiShareFill />,
         subNav : [
             {

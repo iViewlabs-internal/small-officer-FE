@@ -67,7 +67,7 @@ const User = () => {
         <table className='users-table' >
             <thead>
                 <tr className='user-headers'>
-                    <th><input type='checkbox' className='user-checkbox'/></th>
+                    {/* <th><input type='checkbox' className='user-checkbox'/></th> */}
                     <th>Name</th>
                     <th>Primary Location</th>
                     <th>Status</th>
@@ -86,7 +86,7 @@ const User = () => {
                         return (
                             <>
                             <tr className='user-headers'>
-                                <td><input type='checkbox' className='user-checkbox'/></td>
+                                {/* <td><input type='checkbox' className='user-checkbox'/></td> */}
                                 <td className='user-name'><Link to={`/user/${index}`} className='user-name' >{item.firstname} {item.lastname}</Link></td>
                                 <td>{item.city}</td>
                                 <td className='text-success' >Active</td>
@@ -101,7 +101,7 @@ const User = () => {
                         return (
                             <>
                             <tr className='user-headers'>
-                                <td><input type='checkbox' className='user-checkbox'/></td>
+                                {/* <td><input type='checkbox' className='user-checkbox'/></td> */}
                                 <td className='user-name'><Link to={`/user/${index}`} className='user-name' >{item.firstname} {item.lastname}</Link></td>
                                 <td>Ahmedabad</td>
                                 <td className='text-success' >Active</td>
@@ -122,4 +122,5 @@ const User = () => {
 }
 
 export default User
+
 

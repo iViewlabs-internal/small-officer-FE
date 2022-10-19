@@ -7,7 +7,7 @@ import { signIn } from '../../../Redux/Actions/Authentication';
 import axios from 'axios';
 import { api } from '../../../Api/sourceApi';
 import { toast, ToastContainer } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const SignIn = () => {
@@ -103,17 +103,17 @@ const SignIn = () => {
             <div className='signup-data' >
 
                 <div className='signup-inputs' >
-                  <label htmlFor="username" className='signup-label' id='user-name' >Email</label>
-                  <div className="input-group mb-3" id='user-name'>
-                    <span className="input-group-text bg-dark " id="basic-addon1"><FaEnvelope className='text-light bg-dark' /></span>
-                    <input type="text" className="form-control" id='username' placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name='email' value={login.email} onChange={handleChange} />
+                  <label htmlFor="Email" className='signup-label' id='email' >Email</label>
+                  <div className="input-group mb-3" id='email'>
+                    <span className="input-group-text bg-dark input-icon " id="basic-addon1"><FaEnvelope className='text-light bg-dark' /></span>
+                    <input type="text" className="form-control" id='Email' placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" name='email' value={login.email} onChange={handleChange} />
                   </div>
                 </div>
 
                 <div className='signup-inputs' >
                   <label htmlFor="password" className='signup-label' id='pass-word' >Password</label>
                   <div className="input-group flex-nowrap" id='pass-word'>
-                    <span className="input-group-text bg-dark" id="addon-wrapping"> <FaLock className='text-light bg-dark' /> </span>
+                    <span className="input-group-text bg-dark input-icon" id="addon-wrapping"> <FaLock className='text-light bg-dark' /> </span>
                     <input type="password" id='password' className="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping" name='password' value={login.password} onChange={handleChange} />
                   </div>
                 </div>
@@ -122,11 +122,11 @@ const SignIn = () => {
           <div className='bg-white login-btn'>
             <button className='signup-btn btn bg-dark text-white mt-5' onClick={handleClick} >Log In</button>
           </div>
+
+          <p>Don't have account yet ? <Link to={'/signup'} >Register Here</Link></p>
+          {/* <p>Forgot Password</p> */}
           
           </div>
-
-
-
 
           <div className='signup-image'>
             <img src={loginImage} alt="login page Image" className='signup-page-image' />

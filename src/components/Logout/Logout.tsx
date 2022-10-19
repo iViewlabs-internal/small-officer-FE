@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Resources = () => {
+const Logout = () => {
   return (
     <div>
-      
+        
     </div>
   )
 }
 
-export default Resources
+export default Logout
