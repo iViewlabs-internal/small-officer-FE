@@ -6,7 +6,7 @@ import * as RiIcons from 'react-icons/ri';
 const SidebarLink = styled(Link)`
   display:flex;
   align-items : center;
-  padding : 30px;
+  padding : 25px;
   list-style : none;
   height : 20px;
   text-decoration : none;

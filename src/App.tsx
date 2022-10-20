@@ -4,7 +4,7 @@ import { Routes, Route, useParams } from 'react-router-dom';
 import Login from './components/Authentication/Login/Login';
 // import ResetPassword from './components/Authentication/ResetPassword';
 import { Store } from './Redux/Store';
-import { useAppSelector } from './Redux/hook';
+import { useAppDispatch, useAppSelector } from './Redux/hook';
 // import Home from './Pages/Home/Home';
 // import Sidebar from './components/Sidebar/Sidebar';
 // import Calender from './Pages/Calender/Calender';
@@ -22,10 +22,17 @@ import { useAppSelector } from './Redux/hook';
 import Pages from './Pages/Pages';
 import { useEffect, useState } from 'react';
 import { registerLicense } from '@syncfusion/ej2-base';
+import ResetPassword from './components/Authentication/ResetPassword/ResetPassword';
+import ResetPasswordEmail from './components/Authentication/ResetPassword/ResetPasswordEmail';
+import axios from 'axios';
+import { api } from './Api/sourceApi';
+import { signUpData } from './Redux/Actions/Authentication';
 
 function App() {
 
   const Store = useAppSelector(state => state)
+
+  const dispatch = useAppDispatch()
 
   console.log(Store)
  
@@ -34,6 +41,12 @@ function App() {
   console.log(param)
 
   const [render, setRender] = useState(false)
+
+  useEffect(() => {
+    axios.get( api + '/Register')
+      .then(res => dispatch(signUpData(res.data)))
+      .catch(err => console.log(err))
+  },[])
 
   // registerLicense('License Key');
 
@@ -55,6 +68,8 @@ function App() {
       <Routes>
         <Route path='/signup' element={<SignUp />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/reset-password/:id/:token' element={<ResetPassword />} />
+        <Route path='/reset-password-email' element={<ResetPasswordEmail />} />
         <Route path='*' element={<Pages />} />
       </Routes>
     </div>

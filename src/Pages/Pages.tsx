@@ -8,7 +8,6 @@ import AddAnnuncements from './Community/Announcements/AddAnnuncements'
 import Announcements from './Community/Announcements/Announcements'
 import Community from './Community/Community'
 import AddInfo from './Community/InfoPage/AddInfo'
-import InfoPage from './Community/InfoPage/InfoPage'
 import Home from './Home/Home'
 import AddPlan from './Plans/AddPlan'
 import Plans from './Plans/Plans'
@@ -18,7 +17,9 @@ import User from './Profile/User'
 import AllResources from './Resources/AllResources'
 import InvoiceItems from './Resources/InvoiceItems'
 import Payments from './Resources/Payments'
-import Resources from './Resources/AddResource'
+import AddResource from './Resources/AddResource'
+import AddResourceTypes from './Resources/AddResourceTypes'
+import ResourceTypes from './Resources/ResourceTypes'
 
 
 const Pages = () => {
@@ -29,10 +30,7 @@ const Pages = () => {
 
   useEffect(() => {
   
-    if(localStorage.getItem('signup') && !localStorage.getItem('login')){
-      navigate('/login')
-    }
-    else if(!localStorage.getItem('signup') && !localStorage.getItem('login')){
+   if(!localStorage.getItem('signup') && !localStorage.getItem('login')){
       navigate('signup')
     }
 
@@ -58,13 +56,14 @@ const Pages = () => {
               <Route path='/community' element={<Community />} />
               <Route path='/community/announcements' element={<Announcements />} />
               <Route path='/community/addAnnouncements' element={<AddAnnuncements/>} />
-              <Route path='/community/infoPage' element={<InfoPage />} />
-              <Route path='/community/addInfo' element={<AddInfo />} />
+              <Route path='/community/infoPage' element={<AddInfo />} />
               <Route path='/plans' element={<Plans />} />
               <Route path='/addPlan' element={<AddPlan/>} />
-              <Route path='/resources' element={<Resources />} />
+              {/* <Route path='/resources' element={<Resources />} /> */}
               <Route path='/resources/allResources' element={<AllResources />} />
-              <Route path='/resources/addResources' element={<AllResources />} />
+              <Route path='/resources/addResources' element={<AddResource />} />
+              <Route path='/resources/resourceTypes' element={<ResourceTypes />} />
+              <Route path='/resources/addResourceTypes' element={<AddResourceTypes />} />
               <Route path='/resources/invoiceItems' element={<InvoiceItems />} />
               <Route path='/resources/payments' element={<Payments />} />
             </Routes>

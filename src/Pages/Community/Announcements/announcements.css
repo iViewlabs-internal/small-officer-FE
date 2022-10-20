@@ -216,6 +216,11 @@
         align-items: center;
         margin: 3% 0px;
     }
+
+    .add-inputs{
+        width: 90%;
+    }
+    
     
   }
   

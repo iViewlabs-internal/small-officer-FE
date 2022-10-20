@@ -8,7 +8,7 @@ const Community = () => {
   return (
     <div className='toggle-pages'>
       <Link to={'/community/announcements'} className={renderPage == '/community/announcements' ? 'announce-page' : 'community' }>Announcement</Link>
-      <Link to={'/community/addInfo'} className={renderPage == '/community/addInfo' ? 'infoo-page' : 'community' }> Add Info</Link>
+      <Link to={'/community/infoPage'} className={renderPage == '/community/infoPage' ? 'infoo-page' : 'community' }> Add Info</Link>
     </div>
   )
 }

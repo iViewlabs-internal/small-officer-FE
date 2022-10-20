@@ -51,16 +51,16 @@ const AddAnnuncements = () => {
             <h3>Add Announcements</h3>
             <button onClick={SaveAnnouncements} className='btn bg-primary SaveAnnouncement'>Save</button>
         </div>
-            <div className='add-inputs'>
-                <div className='announcement-inputs'>
-                    <FaEdit />
-                    <input type='text' placeholder='Announcement title' name='title' onChange={handleChange}  />
-                </div>
-                {/* <div className='announcement-inputs'>
-                    <FaCamera />
-                    <input type='file' draggable={true} className='ann-file' name='image' onChange={handleChange} />
-                </div> */}
+        <div className='add-inputs'>
+            <div className='announcement-inputs'>
+                <FaEdit />
+                <input type='text' placeholder='Announcement title' name='title' onChange={handleChange}  />
             </div>
+            {/* <div className='announcement-inputs'>
+                <FaCamera />
+                <input type='file' draggable={true} className='ann-file' name='image' onChange={handleChange} />
+            </div> */}
+        </div>
     </div>
   )
 }

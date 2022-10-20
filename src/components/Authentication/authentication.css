@@ -76,7 +76,7 @@ input{
 }
 
 .login-btn{
-    margin-top: 0px;
+    margin-top: -50px;
 }
 
 .signup-image{
@@ -102,6 +102,14 @@ input{
     width: 34vw;
     padding: 30px 20px;
     height: 18px;
+}
+
+.forgot-pass{
+    cursor: pointer;
+}
+
+.extra-auth{
+    margin-top: -20px;
 }
 
 @media screen and (max-width :1000px) {

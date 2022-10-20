@@ -59,7 +59,7 @@
 
 .user-headers{
     display: grid;
-    grid-template-columns: 33% 20% 20% 20%;
+    grid-template-columns: 36% 22% 22% 20%;
     /* border: 1px solid black; */
     justify-content: center;
     align-items: center;

@@ -9,6 +9,9 @@ import * as RiIcons from 'react-icons/ri';
 import {SidebarData} from './SidebarData'
 import SubMenu from './SubMenu';
 import useWindowDimensions from './useWindowDimensions';
+import axios from 'axios';
+import { api } from '../../Api/sourceApi';
+import { useAppSelector } from '../../Redux/hook';
 
 const Nav = styled.div`
   background : white;
@@ -94,9 +97,22 @@ const Sidebar = () => {
     navigate('/login')
   }
 
+  const store = useAppSelector(state => state)
+
+  const user = store.AuthReducer.signupData
+
+  const loginData = JSON.parse(localStorage.getItem('login'))
+
+  console.log(loginData.email, 'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj')
+
+  const userId = user.map(item => item.email == loginData.email ? console.log(item.id) : console.log('hhhhhhhhhhhhhhhhhhhhhhh') )
+
+  console.log(user, 'jjjjjjjjjjjj')
+
   const signout = () => {
     localStorage.removeItem('signup')
     localStorage.removeItem('login')
+    axios.delete(api + '/signout')
     navigate('/signup')
   }
 

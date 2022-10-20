@@ -53,7 +53,7 @@ const User = () => {
 
         <div className='add-users' >
             <h4>Users</h4>
-            <button className='btn bg-primary adduser-btn' onClick={() => navigate('/user/addUser')} > + Add User</button>
+            <button className='btn bg-primary adduser-btn add ' onClick={() => navigate('/user/addUser')} >Add User</button>
         </div>
 
         <div className='add-users-search'>

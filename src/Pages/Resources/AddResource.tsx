@@ -1,142 +1,92 @@
-// import React,{useEffect,useState} from 'react'
-// import { useNavigate, useParams } from 'react-router-dom'
-// import axios from 'axios'
-// import { api } from '../../Api/sourceApi'
-// import { useAppSelector } from '../../Redux/hook'
-
-// const AddResource = () => {
-
-//     const param : any = useParams()
-
-//     const store = useAppSelector(state => state)
-
-//    const data = store.PagesReducer.addUsers
-
-//    console.log(data)
-
-//    const navigate = useNavigate()
-
-//     console.log(param.id)
-//     const id = param.id
-
-// //     {
-// //       "name": "Bhavisha",
-// //       "description": "description.....",
-// //       "type": "t2",
-// //       "location": "amd",
-// //       "personcapacity": 4
-// // }
-
-    
-//     const [addUserData, setAddUserData] = useState({
-//       name : "",
-//       description : "",
-//       type : "",
-//       location : ""
-//     })
-
-//     const displayData = data.filter((item : any, index : number) => index === +id)[0]
-
-
-//     // console.log(displayData.firstname + displayData.lastname)
-
-
-//     const handleChange = (e : React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
-
-//       const {name, value} = e.currentTarget
-      
-//       setAddUserData(prevData => ({
-//         ...prevData,
-//         [name] : value
-//       }) )
-
-//     }
-
-//     console.log(addUserData)
-
-//     const AddUserData = () => {
-//       axios.post(api + '/addUser' , addUserData)
-//         .then(res => navigate('/user'))
-//         .catch(err => console.log(err))
-//     }
-
-//     // useEffect(() => {
-//     //     AddUserData()
-//     // },[])
-
-    
-
-//   return (
-//     <div className='add-User-form' >
-
-//       {/* <div className="mb-3">
-//         <label htmlFor="exampleFormControlInput8" className="form-label">Upload Profile Image</label>
-//         <input type="file" className="form-control" id="exampleFormControlInput8" name='profileimage' value={addUserData.profileimage}  onChange={handleChange} />
-//       </div> */}
-
-//       {/* firstname */}
-
-//       <div className="mb-3">
-//         <label htmlFor="exampleFormControlInput1" className="form-label">First name</label>
-//         <input type="text" className="form-control" id="exampleFormControlInput1" name='firstname' value={addUserData.firstname}  onChange={handleChange} />
-//       </div>
-
-
-//       {/* lastname */}
-
-//       <div className="mb-3">
-//         <label htmlFor="exampleFormControlInput2" className="form-label">Last name</label>
-//         <input type="text" className="form-control" id="exampleFormControlInput2" name='lastname' value={addUserData.lastname}  onChange={handleChange} />
-//       </div>
-
-      
-
-//       {/* about */}
-
-//       <div className="mb-3">
-//         <label htmlFor="exampleFormControlTextarea3" className="form-label">About</label>
-//         <textarea className="form-control" id="exampleFormControlTextarea3" name='about' rows={3} value={addUserData.about} onChange={handleChange} ></textarea>
-//       </div>
-
-
-//       {/* company */}
-
-//       <div className="mb-3">
-//         <label htmlFor="exampleFormControlInput4" className="form-label">Company</label>
-//         <input type="text" className="form-control" id="exampleFormControlInput4" name='company' value={addUserData.company}  onChange={handleChange} />
-//       </div>
-
-//       <div className="mb-3">
-//         <label htmlFor="exampleFormControlInput5" className="form-label">Position</label>
-//         <input type="text" className="form-control" id="exampleFormControlInput5" name='position' value={addUserData.position}  onChange={handleChange} />
-//       </div>
-
-//       <div className="mb-3">
-//         <label htmlFor="exampleFormControlInput6" className="form-label">City name</label>
-//         <input type="text" className="form-control" id="exampleFormControlInput6" name='cityname' value={addUserData.cityname}  onChange={handleChange} />
-//       </div>
-
-//       <div className="mb-3">
-//         <label htmlFor="exampleFormControlInput7" className="form-label">Date</label>
-//         <input type="date" className="form-control" id="exampleFormControlInput7" name='date' value={addUserData.date}  onChange={handleChange} />
-//       </div>
-
-//       <div className='mb-3 add-data'>
-//         <button className='btn bg-primary text-white add-data' onClick={AddUserData}> Add Data </button>
-//       </div>
-
-//     </div>
-//   )
-// }
-
-// export default AddResource
-
-import React from 'react'
+import React,{useEffect,useState} from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import axios from 'axios'
+import { api } from '../../Api/sourceApi'
+import { useAppSelector } from '../../Redux/hook'
 
 const AddResource = () => {
-  return (
-    <div>AddResource</div>
+
+   const navigate = useNavigate()
+
+//     {
+//       "name": "Bhavisha",
+//       "description": "description...",
+//       "type": "t2",
+//       "location": "amd",
+//       "personcapacity": 4
+// }
+
+    
+    const [addResourceData, setResourceData] = useState({
+      name : "",
+      description : "",
+      type : "",
+      location : "",
+      personcapacity : ""
+    })
+
+
+    const handleChange = (e : React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
+
+      const {name, value} = e.currentTarget
+      
+      setResourceData(prevData => ({
+        ...prevData,
+        [name] : value
+      }) )
+
+    }
+
+    console.log(addResourceData)
+
+    const AddResourceData = () => {
+      axios.post(api + '/addResource' , addResourceData)
+        .then(res => navigate('/resources/allResources'))
+        .catch(err => console.log(err))
+    }
+
+    // useEffect(() => {
+    //     AddUserData()
+    // },[])
+
+    
+
+
+    return (
+    <div className='add-User-form' >
+
+      <div className="mb-3">
+        <label htmlFor="res-name" className="form-label">Name</label>
+        <input type="text" className="form-control" id="res-name" name='name' value={addResourceData.name}  onChange={handleChange} />
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="res-desc" className="form-label">Description</label>
+        <input type="text" className="form-control" id="res-desc" name='description' value={addResourceData.description}  onChange={handleChange} />
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="res-type" className="form-label">Type</label>
+        <input className="form-control" id="res-type" name='type'  value={addResourceData.type} onChange={handleChange} />
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="res-location" className="form-label">Location</label>
+        <input type="text" className="form-control" id="res-location" name='location' value={addResourceData.location}  onChange={handleChange} />
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="res-personcapacity" className="form-label">Position</label>
+        <input type="text" className="form-control" id="res-personcapacity" name='personcapacity' value={addResourceData.personcapacity}  onChange={handleChange} />
+      </div>  
+
+      <div className='mb-3 add-data'>
+        <button className='btn bg-primary text-white add-data' onClick={AddResourceData}> Add Resource </button>
+      </div>
+
+    </div>
   )
 }
+
 
 export default AddResource

@@ -17,6 +17,8 @@ const SignIn = () => {
     password : ""
   })
 
+
+
   const dispatch = useAppDispatch()
 
   const store = useAppSelector(state => state)
@@ -37,6 +39,12 @@ const SignIn = () => {
 
   }
 
+  console.log(store.AuthReducer.signupData)
+
+  const emails= []
+
+  
+
   const handleClick = async () => {
     
 
@@ -49,7 +57,10 @@ const SignIn = () => {
             navigate('/')
           }
 
-          if( res.status === 200 && signupData.email === login.email && signupData.password === login.password){
+          // console.log(store.AuthReducer.signupData , store.AuthReducer.signupData.includes(login.password))
+
+          console.log(res.data.status , 'resssssssssssssssss')
+          if( res.data.status === 'success'){
             toast.success('User Loggedin successfully !',{
               position :toast.POSITION.TOP_RIGHT,
               className : 'toast-message'
@@ -57,7 +68,7 @@ const SignIn = () => {
       
             dispatch(signIn(login))
               localStorage.setItem('login', JSON.stringify(login))
-      
+       
               setTimeout(
                       validate
                     ,2000)
@@ -75,8 +86,11 @@ const SignIn = () => {
         className : 'toast-message'
       }))
 
+  }
 
-
+  const ResetPassword = () => {
+    axios.post(api + '/send-reset-password-email' , )
+    
   }
 
   console.log(store.AuthReducer.login)
@@ -123,7 +137,10 @@ const SignIn = () => {
             <button className='signup-btn btn bg-dark text-white mt-5' onClick={handleClick} >Log In</button>
           </div>
 
+          <div className='extra-auth'>
           <p>Don't have account yet ? <Link to={'/signup'} >Register Here</Link></p>
+          <Link to={'/reset-password-email'} >Forgot Password ? </Link>
+          </div>
           {/* <p>Forgot Password</p> */}
           
           </div>
