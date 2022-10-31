@@ -54,6 +54,7 @@
 
 .back-arrow{
     background-color: rgb(222, 217, 217);
+    cursor: pointer;
 }
 
 .form-control{
