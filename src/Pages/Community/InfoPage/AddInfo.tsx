@@ -120,10 +120,6 @@ const EditInfo = (id : any) => {
   
 }
 
-
-
-
-
 const SaveEditInfo = (id : any) => {
   axios.put(api + `/updateInfo/${id}`, data)
   .then(res => {
@@ -136,7 +132,6 @@ const SaveEditInfo = (id : any) => {
   // setLoad(!load)
 
 }
-
 
 
 const DeleteInfo = (id : any) => {
@@ -210,7 +205,6 @@ const AddBlock = () => {
     </div>
   )
 }
-
 
 
 export default AddInfo

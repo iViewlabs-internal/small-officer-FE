@@ -103,7 +103,7 @@ const Sidebar = () => {
 
   const loginData = JSON.parse(localStorage.getItem('login'))
 
-  console.log(loginData.email, 'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj')
+  // console.log(loginData.email, 'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj')
 
   const userId = user.map(item => item.email == loginData.email ? console.log(item.id) : console.log('hhhhhhhhhhhhhhhhhhhhhhh') )
 

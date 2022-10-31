@@ -73,7 +73,7 @@
     justify-content: center;
     align-items: center;
     color: black;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .addResource-btn{
@@ -84,6 +84,10 @@
     width: 60%;
 }
 
+.add-resource-type-btn{
+    width: 20%;
+}
+
 @media screen and (max-width : 1000px) {
     .addResource-btn{
         width: 40%;
@@ -91,6 +95,10 @@
 
     .add-data{
         width: 70%;
+    }
+
+    .add-resource-type-btn{
+        width: 40%;
     }
 }
 
@@ -109,5 +117,9 @@
 
     .add-data{
         width: 60%;
+    }
+
+    .add-resource-type-btn{
+        width: 50%;
     }
 }

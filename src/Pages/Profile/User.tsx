@@ -87,7 +87,7 @@ const User = () => {
                             <>
                             <tr className='user-headers'>
                                 {/* <td><input type='checkbox' className='user-checkbox'/></td> */}
-                                <td className='user-name'><Link to={`/user/${index}`} className='user-name' >{item.firstname} {item.lastname}</Link></td>
+                                <td className='user-name'><Link to={`/user/${index+1}`} className='user-name' >{item.firstname} {item.lastname}</Link></td>
                                 <td>{item.city}</td>
                                 <td className='text-success' >Active</td>
                                 <td>{item.date}</td>
@@ -102,7 +102,7 @@ const User = () => {
                             <>
                             <tr className='user-headers'>
                                 {/* <td><input type='checkbox' className='user-checkbox'/></td> */}
-                                <td className='user-name'><Link to={`/user/${index}`} className='user-name' >{item.firstname} {item.lastname}</Link></td>
+                                <td className='user-name'><Link to={`/user/${index+1}`} className='user-name' >{item.firstname} {item.lastname}</Link></td>
                                 <td>Ahmedabad</td>
                                 <td className='text-success' >Active</td>
                                 <td>{item.date}</td>
