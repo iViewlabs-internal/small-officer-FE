@@ -24,6 +24,8 @@ const SignUp = () => {
 
   const store = useAppSelector(state => state)
 
+  const user = store.AuthReducer.signupData
+
   const navigate = useNavigate()
 
 
@@ -48,14 +50,14 @@ const SignUp = () => {
       
       }
 
-      if(validator.isEmail(register.email) && validator.isStrongPassword(register.password)){
+      if(validator.isEmail(register.email) && validator.isStrongPassword(register.password) && !user.includes(register.email)){
         toast.success('User register successfully !', {
           position: toast.POSITION.TOP_RIGHT,
           className : 'toast-message'
       })
 
       dispatch(signUp(register))
-      localStorage.setItem('signup', JSON.stringify(store.AuthReducer.signup))
+      localStorage.setItem('signup', JSON.stringify(register))
 
       setTimeout(
         validate

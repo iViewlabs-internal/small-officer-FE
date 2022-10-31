@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { FaArrowAltCircleUp, FaArrowCircleLeft, FaCalendar, FaGripLines, FaLocationArrow, FaWifi } from 'react-icons/fa';
 import InvoicedRevenue from './Graph/InvoicedRevenue';
 import NewUsers, { ChartSecond } from './Graph/NewUsers';
@@ -9,13 +9,19 @@ import RevenueBreakdown from './Graph/RevenueBreakdown';
 import './home.css';
 
 const Home = () => {
+
+  useEffect(() => {
+
+  },[])
   
   return (
     <div className='home'>
     <div className='overview-newUsers' >
-      <h3>Analytics</h3>
-      <p>Make data driven decisions using these reports</p>
-      <div>
+      <div className='overview-newUsers-headings' >
+        <h3>Analytics</h3>
+        <p>Make data driven decisions using these reports</p>
+      </div>
+      <div className='inside-overview-newUsers' >
         <div className='overview'>
           <h5 className='bg-white' >Overview</h5>
           <div className='d-flex bg-white overview-headings '>

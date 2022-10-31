@@ -7,21 +7,27 @@ import { signIn } from '../../../Redux/Actions/Authentication';
 import axios from 'axios';
 import { api } from '../../../Api/sourceApi';
 import { toast, ToastContainer } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const SignIn = () => {
 
   const [login, setLogin] = useState({
-    username : "",
+    email : "",
     password : ""
   })
+
+
 
   const dispatch = useAppDispatch()
 
   const store = useAppSelector(state => state)
 
   const navigate = useNavigate()
+
+  const da : any = localStorage.getItem('signup')
+
+  const signupData = JSON.parse(da)
 
   const handleChange = (e : React.ChangeEvent<HTMLInputElement>) => {
     const {name, value} = e.currentTarget
@@ -33,27 +39,46 @@ const SignIn = () => {
 
   }
 
+  console.log(store.AuthReducer.signupData)
+
+  const emails= []
+
+  
+
   const handleClick = async () => {
     
 
     await axios.post(api + '/login' , login)
     .then(res => {
 
+      console.log(res.status)
+
       const validate = () => {
             navigate('/')
           }
 
-      toast.success('User Loggedin successfully !',{
-        position :toast.POSITION.TOP_RIGHT,
-        className : 'toast-message'
-      }) 
+          // console.log(store.AuthReducer.signupData , store.AuthReducer.signupData.includes(login.password))
 
-      dispatch(signIn(login))
-        localStorage.setItem('login', JSON.stringify(store.AuthReducer.login))
-
-        setTimeout(
-                validate
-              ,2000)
+          console.log(res.data.status , 'resssssssssssssssss')
+          if( res.data.status === 'success'){
+            toast.success('User Loggedin successfully !',{
+              position :toast.POSITION.TOP_RIGHT,
+              className : 'toast-message'
+            }) 
+      
+            dispatch(signIn(login))
+              localStorage.setItem('login', JSON.stringify(login))
+       
+              setTimeout(
+                      validate
+                    ,2000)
+          }
+          else{
+            toast.error('Enter Valid credentials',{
+              position : toast.POSITION.TOP_RIGHT,
+              className : 'toast-message'
+            })
+          }
 
     })
     .catch(err => toast.error('Enter Valid credentials',{
@@ -61,60 +86,11 @@ const SignIn = () => {
         className : 'toast-message'
       }))
 
-      
-    //   console.log(res)
-      
-    //   const validate = () => {
-    //     navigate('/')
-    //   }
-    //     toast.success('User Loggedin successfully !', {
-    //       position: toast.POSITION.TOP_RIGHT,
-    //       className : 'toast-message'
-    //     })
+  }
 
-    //     dispatch(signIn(login))
-    //     localStorage.setItem('login', JSON.stringify(store.AuthReducer.login))
-
-    //     setTimeout(
-    //       validate
-    //     ,2000)
-
-    // })
-    // .catch(err => toast.error('Enter Valid credentials',{
-    //   position : toast.POSITION.TOP_RIGHT,
-    //   className : 'toast-message'
-    // }))
-  
-
-    // const validate = () => {
-    //       navigate('/')
-    //     }
-
-    //     const signupdata : any = localStorage.getItem('signup')
-    //     const data = JSON.parse(signupdata)
-    //     console.log(data)
-
-    //     if(data.username === login.username && data.password === login.password){
-
-    //       toast.success('User Loggedin successfully !', {
-    //         position: toast.POSITION.TOP_RIGHT,
-    //         className : 'toast-message'
-    //       })
-  
-    //       dispatch(signIn(login))
-    //       localStorage.setItem('login', JSON.stringify(store.AuthReducer.login))
-  
-    //       setTimeout(
-    //         validate
-    //       ,2000)
-
-    //     }
-
-    //     else{
-    //       alert('Enter valid credentials')
-    //     }
-
-
+  const ResetPassword = () => {
+    axios.post(api + '/send-reset-password-email' , )
+    
   }
 
   console.log(store.AuthReducer.login)
@@ -141,17 +117,17 @@ const SignIn = () => {
             <div className='signup-data' >
 
                 <div className='signup-inputs' >
-                  <label htmlFor="username" className='signup-label' id='user-name' >Username</label>
-                  <div className="input-group mb-3" id='user-name'>
-                    <span className="input-group-text bg-dark " id="basic-addon1"><FaEnvelope className='text-light bg-dark' /></span>
-                    <input type="text" className="form-control" id='username' placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name='username' value={login.username} onChange={handleChange} />
+                  <label htmlFor="Email" className='signup-label' id='email' >Email</label>
+                  <div className="input-group mb-3" id='email'>
+                    <span className="input-group-text bg-dark input-icon " id="basic-addon1"><FaEnvelope className='text-light bg-dark' /></span>
+                    <input type="text" className="form-control" id='Email' placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" name='email' value={login.email} onChange={handleChange} />
                   </div>
                 </div>
 
                 <div className='signup-inputs' >
                   <label htmlFor="password" className='signup-label' id='pass-word' >Password</label>
                   <div className="input-group flex-nowrap" id='pass-word'>
-                    <span className="input-group-text bg-dark" id="addon-wrapping"> <FaLock className='text-light bg-dark' /> </span>
+                    <span className="input-group-text bg-dark input-icon" id="addon-wrapping"> <FaLock className='text-light bg-dark' /> </span>
                     <input type="password" id='password' className="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping" name='password' value={login.password} onChange={handleChange} />
                   </div>
                 </div>
@@ -160,11 +136,14 @@ const SignIn = () => {
           <div className='bg-white login-btn'>
             <button className='signup-btn btn bg-dark text-white mt-5' onClick={handleClick} >Log In</button>
           </div>
+
+          <div className='extra-auth'>
+          <p>Don't have account yet ? <Link to={'/signup'} >Register Here</Link></p>
+          <Link to={'/reset-password-email'} >Forgot Password ? </Link>
+          </div>
+          {/* <p>Forgot Password</p> */}
           
           </div>
-
-
-
 
           <div className='signup-image'>
             <img src={loginImage} alt="login page Image" className='signup-page-image' />

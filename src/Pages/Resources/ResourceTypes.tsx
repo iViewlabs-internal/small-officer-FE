@@ -9,7 +9,7 @@ import '../Profile/profile.css'
 import { useNavigate } from 'react-router-dom'
 import './resources.css'
 
-const AllResources = () => {
+const ResourceTypes = () => {
 
     const [resources, setResources] = useState([])
 
@@ -17,7 +17,7 @@ const AllResources = () => {
 
 
     const fetchResourceData = async () => {
-        axios.get(api + '/AddResource')
+        axios.get(api + '/AddType')
         .then(res => setResources(res.data))
         .catch(err => console.log(err))
     }
@@ -33,19 +33,17 @@ const AllResources = () => {
 
         <div className='add-users' >
             <h4>Users</h4>
-            <button className='btn bg-primary addResource-btn' onClick={() => navigate('/resources/addResources')} > + Add Resource</button>
+            <button className='btn bg-primary add-resource-type-btn' onClick={() => navigate('/resources/addResourceTypes')} > + Add Type</button>
         </div>
 
         <div className='add-users-section' >
         <table className='users-table' >
             <thead>
-                <tr className='resource-headers'>
-                    {/* <th><input type='checkbox' className='user-checkbox'/></th> */}
-                    <th>Name</th>
+                <tr className='resource-type-headers'>
                     <th>Type</th>
-                    <th>Location</th>
-                    <th>Booking Group</th>
-                    <th>Capacity</th>
+                    <th>Repeat booking</th>
+                    <th>Mintime</th>
+                    <th>Cancle Time</th>
                 </tr>
             </thead>
             <tbody>
@@ -53,13 +51,12 @@ const AllResources = () => {
                     resources.map((item : any, index : number) => {
                         return (
                             <>
-                            <tr className='resource-headers'>
+                            <tr className='resource-type-headers'>
                                 {/* <td><input type='checkbox' className='user-checkbox'/></td> */}
-                                <td className='user-name'>{item.name}</td>
-                                <td>{item.type}</td>
-                                <td className='text-success' >{item.location}</td>
-                                <td>-</td>
-                                <td>{item.personcapacity}</td>
+                                <td className='user-name'>{item.type}</td>
+                                <td>{item.repeatbooking}</td>
+                                <td>{item.mintime}</td>
+                                <td>{item.cancletime}</td>
                             </tr>
                             <hr />
                             </>
@@ -91,4 +88,5 @@ const AllResources = () => {
 }
 
 
-export default AllResources
+export default ResourceTypes
+

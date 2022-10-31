@@ -29,7 +29,7 @@ export const SidebarData = [
     },
     {
         title : 'Community',
-        path : '/community',
+        path : '/community/announcements',
         icon : <RiIcons.RiShareFill />,
         subNav : [
             {
@@ -49,20 +49,31 @@ export const SidebarData = [
     },
     {
         title : 'Resources',
-        path : '/resources',
+        path : '/resources/allResources',
         icon : <IoIcons.IoIosPaper />,
         subNav : [
             {
-                title : 'All Resources',
+                title : 'All resources',
                 path : '/resources/allResources'
             },
             {
+                title : 'Resource types',
+                path : '/resources/resourceTypes'
+            }
+        ]
+    },
+    {
+        title : 'Invoices', 
+        path : '/invoiceItems',
+        icon : <IoIcons.IoIosPaper />,
+        subNav : [
+            {
                 title : 'Invoice Items',
-                path : '/resources/invoiceItems'
+                path : '/invoiceItems'
             },
             {
                 title : 'Payments',
-                path : '/resources/payments'
+                path : 'payments'
             }
         ]
     }
