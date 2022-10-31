@@ -86,7 +86,7 @@ const AddPlan = () => {
   return (
     <div className='add-plan-page'>
         <div className='create-plan'>
-            <p><FaArrowLeft className='back-arrow text-secondary' /></p>
+            <p><FaArrowLeft onClick={() => navigate('/plans')} className='back-arrow text-secondary' /></p>
             <h4 className='text-secondary'>Create new Plan</h4>
         </div>
         <div className='create-plan text-secondary'>

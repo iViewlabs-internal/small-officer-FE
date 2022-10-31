@@ -32,7 +32,7 @@ const ResourceTypes = () => {
     <div className='users'>
 
         <div className='add-users' >
-            <h4>Users</h4>
+            <h4>Resource Types</h4>
             <button className='btn bg-primary add-resource-type-btn' onClick={() => navigate('/resources/addResourceTypes')} > + Add Type</button>
         </div>
 
