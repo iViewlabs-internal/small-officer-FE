@@ -17,8 +17,6 @@ const SignIn = () => {
     password : ""
   })
 
-
-
   const dispatch = useAppDispatch()
 
   const store = useAppSelector(state => state)
@@ -39,11 +37,9 @@ const SignIn = () => {
 
   }
 
-  console.log(store.AuthReducer.signupData)
+  // console.log(store.AuthReducer.signupData)
 
   const emails= []
-
-  
 
   const handleClick = async () => {
     
@@ -51,7 +47,7 @@ const SignIn = () => {
     await axios.post(api + '/login' , login)
     .then(res => {
 
-      console.log(res.status)
+      // console.log(res.status)
 
       const validate = () => {
             navigate('/')
@@ -59,7 +55,6 @@ const SignIn = () => {
 
           // console.log(store.AuthReducer.signupData , store.AuthReducer.signupData.includes(login.password))
 
-          console.log(res.data.status , 'resssssssssssssssss')
           if( res.data.status === 'success'){
             toast.success('User Loggedin successfully !',{
               position :toast.POSITION.TOP_RIGHT,
@@ -88,12 +83,7 @@ const SignIn = () => {
 
   }
 
-  const ResetPassword = () => {
-    axios.post(api + '/send-reset-password-email' , )
-    
-  }
-
-  console.log(store.AuthReducer.login)
+  // console.log(store.AuthReducer.login)
 
   return (
     <div className='main-signup'>
@@ -139,7 +129,6 @@ const SignIn = () => {
 
           <div className='extra-auth'>
           <p>Don't have account yet ? <Link to={'/signup'} >Register Here</Link></p>
-          <Link to={'/reset-password-email'} >Forgot Password ? </Link>
           </div>
           {/* <p>Forgot Password</p> */}
           

@@ -33,6 +33,9 @@ const Pages = () => {
    if(!localStorage.getItem('signup') && !localStorage.getItem('login')){
       navigate('signup')
     }
+    else if(localStorage.getItem('signup') && !localStorage.getItem('login')){
+      navigate('login')
+    }
 
   },[])
 

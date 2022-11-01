@@ -14,11 +14,11 @@ const User = () => {
     const dispatch = useAppDispatch()
 
     const store = useAppSelector(state => state)
-    console.log(store)
+    // console.log(store)
 
     const users = store.PagesReducer.addUsers
 
-    console.log(users)
+    // console.log(users)
 
     const navigate = useNavigate()
 
@@ -42,7 +42,7 @@ const User = () => {
     const user = users.filter((item : any,index : number) => item.firstname.toLowerCase() === search )
 
     
-    console.log(user)
+    // console.log(user)
 
     // console.log(users)
 
@@ -85,7 +85,7 @@ const User = () => {
                     user.map((item : any, index : number) => {
                         return (
                             <>
-                            <tr className='user-headers'>
+                            <tr className='user-headers' key={item.id}>
                                 {/* <td><input type='checkbox' className='user-checkbox'/></td> */}
                                 <td className='user-name'><Link to={`/user/${index+1}`} className='user-name' >{item.firstname} {item.lastname}</Link></td>
                                 <td>{item.city}</td>

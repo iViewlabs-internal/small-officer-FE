@@ -43,7 +43,7 @@ const SignUp = () => {
 
     await axios.post(api + '/register' , register)
     .then(res => {
-      console.log(res)
+      // console.log(res)
     const validate = () => {
 
       navigate('/login')
