@@ -23,15 +23,6 @@ const AddAnnuncements = () => {
         }))
     }
 
-
-    // const config = {
-    //     headers: {
-    //       'content-type': 'multipart/form-data'
-    //     }
-    //   }
-
-    console.log(announcement.title)
-
     var fdataobj = new FormData();
   
     // Create formdata object and append the object
@@ -43,7 +34,7 @@ const AddAnnuncements = () => {
         axios.post(api + '/addAnnounce', announcement)
         .then(res => navigate('/community/announcements'))
         .catch(err => {throw err})
-}
+    }
 
   return (
     <div className='addAnnouncements'>

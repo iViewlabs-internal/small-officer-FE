@@ -43,13 +43,13 @@ const SidebarLink = styled(Link)`
 
 const SubMenu = ({item}) => {
 
-  console.log(item)
+  // console.log(item)
 
   const [subnav, setSubnav] = useState(false)
 
   const showSubnav = () => setSubnav(!subnav)
 
-  console.log(item.iconClosed, item.iconOpend)
+  // console.log(item.iconClosed, item.iconOpend)
 
   return (
     <>

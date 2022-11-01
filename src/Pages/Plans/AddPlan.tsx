@@ -14,11 +14,11 @@ const AddPlan = () => {
 
    const data = store.PagesReducer.addUsers
 
-   console.log(data)
+//    console.log(data)
 
    const navigate = useNavigate()
 
-    console.log(param.id)
+    // console.log(param.id)
     const id = param.id
 
 //     "type": "small....",

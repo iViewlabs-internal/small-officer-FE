@@ -14,24 +14,47 @@ const Header = () => {
 
     // const name =  "Bhavisha Nayi"
     //  |localStorage.getItem('signup')
+    const [registerData, setRegisterData] = useState([])
     const [username, setUsername] = useState('')
-
-    const alphabetList = username?.split(" ") 
-
-    const firstalphanets = alphabetList.map((item : any) => <p>{item[0]}</p>)
-    
-   
     
     useEffect(() => {
       axios.get( api + '/Register')
-      .then(res => setUsername(res.data[res.data.length - 1].username))
+      .then(res => setRegisterData(res.data))
       .catch(err => console.log(err))
-    },[])
+    },[ ])
+
+
+    // setUsername(res.data[res.data.length - 1].username)
 
 
     // console.log(username)
 
     // console.log(alphabetList)
+
+    const condition = (item : any) => {
+      if(item.email == JSON.parse(loginData).email){
+        setUsername(item.username)
+      }
+    }
+
+    const loginData : any = localStorage.getItem('login')
+
+    
+    !username
+    &&
+    registerData.map((item : any, index : number) => {
+      return (
+        condition(item)
+      )
+    })
+
+    // return (
+
+    const alphabetList = username?.split(" ") 
+
+    const firstalphanets = alphabetList.map((item : any, index : number) => <p key={index} >{item[0]}</p>)
+
+    // console.log()
 
   return (
     <div className='main-header'>

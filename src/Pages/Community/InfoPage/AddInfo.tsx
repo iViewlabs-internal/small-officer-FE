@@ -49,8 +49,6 @@ useEffect(() => {
 },[load])
 
 
-// console.log(infoData[0].id)
-
 var fdataobj = new FormData();
 
 const SaveInfo = () => {
@@ -73,14 +71,6 @@ const [data, setData] = useState({
   description : ""
 })
 
-
-
-// const {title, description} = datatoEdit
-// console.log(datatoEdit)
-
-
-// console.log(data.title)
-
 const handleEdit = (e : any) => {
   const {name, value} = e.currentTarget
 
@@ -92,15 +82,11 @@ const handleEdit = (e : any) => {
 }
 
 
-console.log(datatoEdit)
-
-
-
 const editId = datatoEdit && datatoEdit['id']
 
 const EditInfo = (id : any) => {
 
-  console.log(id)
+  // console.log(id)
   
   axios.get(api + `/AddInfo/${id}`)
   .then(res => {
@@ -111,8 +97,8 @@ const EditInfo = (id : any) => {
       title : res.data.title,
       description : res.data.description
     }))
-    console.log(datatoEdit)
-    console.log('loaddd')
+    // console.log(datatoEdit)
+    // console.log('loaddd')
     getInfo()
     setLoad(!load)
   })
@@ -135,7 +121,7 @@ const SaveEditInfo = (id : any) => {
 
 
 const DeleteInfo = (id : any) => {
-console.log(id)
+// console.log(id)
   axios.delete(api + `/DeleteInfo/${id}`)
   .then(res => setLoad(!load))
   .catch(err => console.log(err))

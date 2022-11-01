@@ -33,7 +33,7 @@ const AddResourceTypes = () => {
 
     }
 
-    console.log(addResourceType)
+    // console.log(addResourceType)
 
     const AddResourceType = () => {
       axios.post(api + '/addType' , addResourceType)

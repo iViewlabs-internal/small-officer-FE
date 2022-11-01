@@ -34,11 +34,11 @@ function App() {
 
   const dispatch = useAppDispatch()
 
-  console.log(Store)
+  // console.log(Store)
  
   const param = useParams()
 
-  console.log(param)
+  // console.log(param)
 
   const [render, setRender] = useState(false)
 
@@ -61,7 +61,7 @@ function App() {
   //   }
   // },[window.location.pathname])
 
-  console.log(render)
+  // console.log(render)
 
   return (
     <div className="App">

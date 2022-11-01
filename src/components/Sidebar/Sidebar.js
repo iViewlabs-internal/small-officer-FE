@@ -105,9 +105,9 @@ const Sidebar = () => {
 
   // console.log(loginData.email, 'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj')
 
-  const userId = user.map(item => item.email == loginData.email ? console.log(item.id) : console.log('hhhhhhhhhhhhhhhhhhhhhhh') )
+  // const userId = user.map(item => item.email == loginData.email ? console.log(item.id) : console.log('hhhhhhhhhhhhhhhhhhhhhhh') )
 
-  console.log(user, 'jjjjjjjjjjjj')
+  // console.log(user, 'jjjjjjjjjjjj')
 
   const signout = () => {
     localStorage.removeItem('signup')
@@ -116,7 +116,7 @@ const Sidebar = () => {
     navigate('/signup')
   }
 
-  console.log(wid)
+  // console.log(wid)
 
 
   return (
