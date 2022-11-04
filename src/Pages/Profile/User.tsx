@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { api } from '../../Api/sourceApi'
 import { addUsers } from '../../Redux/Actions/Pages'
@@ -7,6 +7,10 @@ import { useAppDispatch, useAppSelector } from '../../Redux/hook'
 import './profile.css'
 // import ReactLoading from 'react-loading';
 import { useNavigate } from 'react-router-dom'
+import '../../components/Pagination/pagination.scss'
+import Pagination from '../../components/Pagination/Pagination'
+
+let PageSize = 10;
 
 const User = () => {
 
@@ -40,6 +44,14 @@ const User = () => {
     }
 
     const user = users.filter((item : any,index : number) => item.firstname.toLowerCase() === search )
+
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const currentTableData = useMemo(() => {
+      const firstPageIndex = (currentPage - 1) * PageSize;
+      const lastPageIndex = firstPageIndex + PageSize;
+      return users.slice(firstPageIndex, lastPageIndex);
+    }, [users, currentPage]);
 
     
     // console.log(user)
@@ -97,7 +109,7 @@ const User = () => {
                         )
                     })
                     :
-                    users.map((item : any, index : any) => {
+                    currentTableData.map((item : any, index : any) => {
                         return (
                             <>
                             <tr className='user-headers'>
@@ -116,6 +128,21 @@ const User = () => {
             </tbody>
         </table>
         </div>
+
+        <div>
+            {
+                search ? "" : 
+                <Pagination
+    className="pagination-bar"
+    currentPage={currentPage}
+    totalCount={users.length}
+    pageSize={PageSize}
+    onPageChange={(page : number) => setCurrentPage(page)}
+  />
+            }
+    
+    </div>
+
 
     </div>
   )

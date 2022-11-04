@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { api } from '../../Api/sourceApi'
 import { addUsers } from '../../Redux/Actions/Pages'
@@ -8,6 +8,10 @@ import '../Profile/profile.css'
 // import ReactLoading from 'react-loading';
 import { useNavigate } from 'react-router-dom'
 import './resources.css'
+import Pagination from '../../components/Pagination/Pagination'
+import '../../components/Pagination/pagination.scss'
+
+let PageSize = 10;
 
 const ResourceTypes = () => {
 
@@ -26,9 +30,18 @@ const ResourceTypes = () => {
         fetchResourceData()
     },[])
 
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const currentTableData = useMemo(() => {
+      const firstPageIndex = (currentPage - 1) * PageSize;
+      const lastPageIndex = firstPageIndex + PageSize;
+      return resources.slice(firstPageIndex, lastPageIndex);
+    }, [resources, currentPage]);
+  
+
   return (
 
-    
+    <div>
     <div className='users'>
 
         <div className='add-users' >
@@ -48,7 +61,7 @@ const ResourceTypes = () => {
             </thead>
             <tbody>
                 {
-                    resources.map((item : any, index : number) => {
+                    currentTableData.map((item : any, index : number) => {
                         return (
                             <>
                             <tr className='resource-type-headers'>
@@ -81,9 +94,25 @@ const ResourceTypes = () => {
                 }
             </tbody>
         </table>
+
+        
         </div>
 
+
     </div>
+
+    <div>
+    <Pagination
+    className="pagination-bar"
+    currentPage={currentPage}
+    totalCount={resources.length}
+    pageSize={PageSize}
+    onPageChange={(page : number) => setCurrentPage(page)}
+  />
+    </div>
+
+    </div>
+    
   )
 }
 

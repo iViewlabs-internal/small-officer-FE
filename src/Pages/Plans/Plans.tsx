@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { api } from '../../Api/sourceApi'
 import './plan.css'
 
+let PageSize = 10;
+
 const Plans = () => {
 
   const navigate = useNavigate()

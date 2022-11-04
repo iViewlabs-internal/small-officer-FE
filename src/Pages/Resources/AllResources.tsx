@@ -9,6 +9,8 @@ import '../Profile/profile.css'
 import { useNavigate } from 'react-router-dom'
 import './resources.css'
 
+let PageSize = 10;
+
 const AllResources = () => {
 
     const [resources, setResources] = useState([])

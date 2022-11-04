@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { api } from '../../../Api/sourceApi'
 import Community from '../Community'
 
+let PageSize = 10;
+
 const Announcements = () => {
 
   const [announce, setAnnounce] = useState([])
