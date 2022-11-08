@@ -2,7 +2,6 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { RiDeleteBack2Fill, RiDeleteBinFill } from 'react-icons/ri'
 import { useNavigate, useParams } from 'react-router-dom'
-import { api } from '../../../Api/sourceApi'
 import Community from '../Community'
 import './infoPage.css'
 
@@ -25,6 +24,8 @@ const [showBlock, setShowBlock] = useState(false)
 
 
 const navigate = useNavigate()
+
+const api = process.env.REACT_APP_API_URL
 
 const handleChange = (e : any ) => {
 
@@ -138,7 +139,7 @@ const AddBlock = () => {
         <Community />
       </div>
         <div className='addInfo-head'>
-            <button className='btn bg-primary SaveInfoBtn' onClick={AddBlock}>Add Block</button>
+            <button className='btn bg-primary text-white SaveInfoBtn' onClick={AddBlock}>Add Block</button>
         </div>
 
         {

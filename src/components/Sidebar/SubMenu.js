@@ -6,7 +6,8 @@ import * as RiIcons from 'react-icons/ri';
 const SidebarLink = styled(Link)`
   display:flex;
   align-items : center;
-  padding : 25px;
+  justify-content : center;
+  padding : 23px;
   list-style : none;
   height : 20px;
   text-decoration : none;
@@ -21,18 +22,22 @@ const SidebarLink = styled(Link)`
   }
   `;
 
+  const SidebarIcon= styled.div`
+    width : 60px;
+  `
+
   const SidebarLabel = styled.span`
   margin-left : 10px;
   background : white;
   `;
 
   const DropdownLink = styled(Link)`
-    height : 60px;
+    height : 40px;
     padding-left : 3rem;
     display : flex;
     align-items : center;
     text-decoration : none;
-    color : black;
+    color : grey;
     font-size : 18px;
 
     &:hover {
@@ -43,34 +48,32 @@ const SidebarLink = styled(Link)`
 
 const SubMenu = ({item}) => {
 
-  // console.log(item)
-
   const [subnav, setSubnav] = useState(false)
+  const [overflow, setOverflow] = useState(false)
 
   const showSubnav = () => setSubnav(!subnav)
 
-  // console.log(item.iconClosed, item.iconOpend)
+  // console.log(item.iconClosed, .itemiconOpend)
 
   return (
     <>
       <SidebarLink to={item.path} onClick={item.subNav && showSubnav}>
-          <div >{item.icon}</div>
+          <SidebarIcon>{item.icon}</SidebarIcon>
           <SidebarLabel>{item.title}</SidebarLabel>
-        <div className='submenu-icons'>
+          <div className='submenu-icons'>
           {item.subNav && subnav 
-          ? <RiIcons.RiArrowDropDownFill />
+          ? <RiIcons.RiArrowDropUpFill />
           : item.subNav 
-          ? <RiIcons.RiArrowDropUpFill /> 
+          ? <RiIcons.RiArrowDropDownFill />
           : null}
         </div>
       </SidebarLink>
-
 
       {/* submenu */}
 
       {subnav && item.subNav.map((item, index) => {
         return (
-          <DropdownLink to={item.path} key={index}>
+          <DropdownLink to={item.path} key={index} onClick={() => setOverflow(true)}>
             <SidebarLabel>{item.title}</SidebarLabel>
           </DropdownLink>
         )

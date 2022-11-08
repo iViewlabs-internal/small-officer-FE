@@ -25,7 +25,6 @@ import { registerLicense } from '@syncfusion/ej2-base';
 import ResetPassword from './components/Authentication/ResetPassword/ResetPassword';
 import ResetPasswordEmail from './components/Authentication/ResetPassword/ResetPasswordEmail';
 import axios from 'axios';
-import { api } from './Api/sourceApi';
 import { signUpData } from './Redux/Actions/Authentication';
 
 function App() {
@@ -41,6 +40,8 @@ function App() {
   // console.log(param)
 
   const [render, setRender] = useState(false)
+  
+  const api = process.env.REACT_APP_API_URL
 
   useEffect(() => {
     axios.get( api + '/Register')

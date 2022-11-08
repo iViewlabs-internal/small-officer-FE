@@ -1,7 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
-import { api } from '../../Api/sourceApi'
 import { useAppSelector } from '../../Redux/hook'
 
 const AddResourceTypes = () => {
@@ -34,6 +33,8 @@ const AddResourceTypes = () => {
     }
 
     // console.log(addResourceType)
+    
+    const api = process.env.REACT_APP_API_URL
 
     const AddResourceType = () => {
       axios.post(api + '/addType' , addResourceType)

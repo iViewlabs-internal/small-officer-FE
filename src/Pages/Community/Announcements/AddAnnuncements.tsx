@@ -2,7 +2,6 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { FaCamera, FaEdit } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
-import { api } from '../../../Api/sourceApi'
 import './announcements.css'
 
 const AddAnnuncements = () => {
@@ -29,6 +28,9 @@ const AddAnnuncements = () => {
     // file to the name 'Blob file'
     // fdataobj.append("Blob File", announcement);
   
+
+    
+    const api = process.env.REACT_APP_API_URL
 
     const SaveAnnouncements = () => {
         axios.post(api + '/addAnnounce', announcement)

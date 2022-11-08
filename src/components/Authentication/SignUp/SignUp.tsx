@@ -4,7 +4,6 @@ import {FaEnvelope, FaLock} from 'react-icons/fa';
 import loginImage from '../../../Assets/Images/login-image.png'
 import { useAppDispatch, useAppSelector } from '../../../Redux/hook';
 import { signUp } from '../../../Redux/Actions/Authentication';
-import { api } from '../../../Api/sourceApi';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import validator from 'validator';
@@ -38,6 +37,8 @@ const SignUp = () => {
     }))
 
   }
+  
+  const api = process.env.REACT_APP_API_URL
 
   const handleClick = async () => {
 

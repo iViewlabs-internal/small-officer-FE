@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../Assets/Images/logo.png'
 import './header.css'
-import {api} from '../../Api/sourceApi'
 
 const Header = () => {
 
@@ -16,6 +15,8 @@ const Header = () => {
     //  |localStorage.getItem('signup')
     const [registerData, setRegisterData] = useState([])
     const [username, setUsername] = useState('')
+    
+    const api = process.env.REACT_APP_API_URL
     
     useEffect(() => {
       axios.get( api + '/Register')

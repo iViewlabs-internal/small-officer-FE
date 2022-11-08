@@ -29,7 +29,6 @@ export const SidebarData = [
     },
     {
         title : 'Community',
-        path : '/community/announcements',
         icon : <RiIcons.RiShareFill />,
         subNav : [
             {
@@ -49,7 +48,6 @@ export const SidebarData = [
     },
     {
         title : 'Resources',
-        path : '/resources/allResources',
         icon : <IoIcons.IoIosPaper />,
         subNav : [
             {
@@ -64,16 +62,19 @@ export const SidebarData = [
     },
     {
         title : 'Invoices', 
-        path : '/invoiceItems',
         icon : <IoIcons.IoIosPaper />,
         subNav : [
+            {
+                title : 'Invoices',
+                path : "/Invoices"
+            },
             {
                 title : 'Invoice Items',
                 path : '/invoiceItems'
             },
             {
                 title : 'Payments',
-                path : 'payments'
+                path : 'Payments'
             }
         ]
     }

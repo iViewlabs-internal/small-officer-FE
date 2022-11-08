@@ -1,6 +1,6 @@
 import React from 'react'
 
-const InvoiceItems = () => {
+const PaymentReceipt = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const InvoiceItems = () => {
   )
 }
 
-export default InvoiceItems
+export default PaymentReceipt

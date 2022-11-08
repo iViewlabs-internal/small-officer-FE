@@ -1,0 +1,104 @@
+{
+    "Invoices" : [
+        {
+            "id" : 1,
+            "Total" : 100,
+            "Status" : "Paid",
+            "DueDate" : "2022-11-07",
+            "User" : "Bhavisha Nayi",
+            "invoiceNumber" : "000748"
+        },
+        {
+            "id" : 2,
+            "Total" : 100,
+            "Status" : "Paid",
+            "DueDate" : "2022-11-07",
+            "User" : "Bhavisha Nayi",
+            "invoiceNumber" : "000748"
+        },
+        {
+            "id" : 3,
+            "Total" : 100,
+            "Status" : "Paid",
+            "DueDate" : "2022-11-07",
+            "User" : "Bhavisha Nayi",
+            "invoiceNumber" : "000748"
+        },
+        {
+            "id" : 4,
+            "Total" : 100,
+            "Status" : "Paid",
+            "DueDate" : "2022-11-07",
+            "User" : "Bhavisha Nayi",
+            "invoiceNumber" : "000748"
+        }
+    ],
+    "InvoiceItems" : [
+        {
+            "id" : 1,
+            "Item" : "Booking of Hill office ($12hr) March 17,2022 at 3:00pm - 6:00 pm",
+            "Amount" : "$12 hr",
+            "Account" : "Alison Sherwin",
+            "DueDate" : "April 1, 2022",
+            "Status" : "Pending"
+        },
+        {
+            "id" : 2,
+            "Item" : "Booking of Hill office ($12hr) March 17,2022 at 3:00pm - 6:00 pm",
+            "Amount" : "$12 hr",
+            "Account" : "Alison Sherwin",
+            "DueDate" : "April 1, 2022",
+            "Status" : "Pending"
+        },
+        {
+            "id" : 3,
+            "Item" : "Booking of Hill office ($12hr) March 17,2022 at 3:00pm - 6:00 pm",
+            "Amount" : "$12 hr",
+            "Account" : "Alison Sherwin",
+            "DueDate" : "April 1, 2022",
+            "Status" : "Pending"
+        },
+        {
+            "id" : 4,
+            "Item" : "Booking of Hill office ($12hr) March 17,2022 at 3:00pm - 6:00 pm",
+            "Amount" : "$12 hr",
+            "Account" : "Alison Sherwin",
+            "DueDate" : "April 1, 2022",
+            "Status" : "Pending"
+        }
+    ],
+    "Payments" : [
+        {
+            "id" : 1,
+            "Amount" : "$48.00",
+            "Status" : "Successful",
+            "Account" : "Shayla Rodriguez",
+            "Invoice" : "#00808",
+            "Date" : "April 1, 2022, 2:00 AM"
+        },
+        {
+            "id" : 2,
+            "Amount" : "$48.00",
+            "Status" : "Successful",
+            "Account" : "Shayla Rodriguez",
+            "Invoice" : "#00808",
+            "Date" : "April 1, 2022, 2:00 AM"
+        },
+        {
+            "id" : 3,
+            "Amount" : "$48.00",
+            "Status" : "Successful",
+            "Account" : "Shayla Rodriguez",
+            "Invoice" : "#00808",
+            "Date" : "April 1, 2022, 2:00 AM"
+        },
+        {
+            "id" : 4,
+            "Amount" : "$48.00",
+            "Status" : "Successful",
+            "Account" : "Shayla Rodriguez",
+            "Invoice" : "#00808",
+            "Date" : "April 1, 2022, 2:00 AM"
+        }
+    ]
+}

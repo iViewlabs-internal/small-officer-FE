@@ -10,8 +10,8 @@ import {SidebarData} from './SidebarData'
 import SubMenu from './SubMenu';
 import useWindowDimensions from './useWindowDimensions';
 import axios from 'axios';
-import { api } from '../../Api/sourceApi';
 import { useAppSelector } from '../../Redux/hook';
+import logo from '../../Assets/Images/logo.png'
 
 const Nav = styled.div`
   background : white;
@@ -46,6 +46,9 @@ const SidebarNav = styled.nav`
   left : ${({ sidebar }) => (sidebar ? '0' : '-100%')};
   transition : 350ms;
   z-index : 10;
+  overflow: scroll;
+  scrollbar-width: 1px;
+  background-color : white;
 `;
 
 const SidebarWrap = styled.div`
@@ -54,7 +57,6 @@ const SidebarWrap = styled.div`
   grid-template-columns: 80%;
   justify-content : center;
   align-items : center;
-
 `;
 
 const Icons = styled.div`
@@ -77,7 +79,32 @@ const Icons = styled.div`
   top : 10;
   transition : 350ms;
   z-index : 10;
+  background-color : white;
   `
+
+  const SidebarIcon= styled.div`
+    width : 60px;
+    height : 20px;
+  `
+
+  const SidebarLabel = styled.span`
+  margin-left : 10px;
+  margin-top : 10px;
+  background : white;
+  `;
+
+
+  const SidebarDataDisplay = ({logout, signout, SidebarData}) => {
+   return (
+    <div>
+    {SidebarData.map((item, index) => {
+        return <SubMenu item={item} key={index} />
+      })}
+      <button onClick={logout} className='auth-btn btn'>Logout</button>
+      <button onClick={signout} className='auth-btn btn'>SignOut</button>
+  </div>
+   )
+  }
 
 
 const Sidebar = () => {
@@ -103,11 +130,7 @@ const Sidebar = () => {
 
   const loginData = JSON.parse(localStorage.getItem('login'))
 
-  // console.log(loginData.email, 'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj')
-
-  // const userId = user.map(item => item.email == loginData.email ? console.log(item.id) : console.log('hhhhhhhhhhhhhhhhhhhhhhh') )
-
-  // console.log(user, 'jjjjjjjjjjjj')
+  const api = process.env.REACT_APP_API_URL
 
   const signout = () => {
     localStorage.removeItem('signup')
@@ -132,17 +155,23 @@ const Sidebar = () => {
         {
           SidebarData.map((item,index) => {
             return <div >{item.icon}</div>
-        
           })
         }
         </Icons>
         {/* </div> */}
       </Nav>
+      
       <SidebarNav sidebar={sidebar} >
         <SidebarWrap>
         <NavIcon to='#' >
           <AiIcons.AiOutlineClose onClick={showSidebar} />
         </NavIcon>
+        <div className='logo'><Link to={'/'}><img src={logo} alt='logo' className='logo-image' /></Link></div>
+        <div className='dashboard'>
+          <SidebarIcon><AiIcons.AiFillHome /></SidebarIcon>
+          <SidebarLabel>Dashboard</SidebarLabel>
+        </div>
+        <hr />
         {SidebarData.map((item, index) => {
           return <SubMenu item={item} key={index} />
         })}
@@ -150,16 +179,12 @@ const Sidebar = () => {
         <button onClick={signout} className='auth-btn btn'>SignOut</button>
         </SidebarWrap>
       </SidebarNav>
-
         </>
         :
         <>
         <SidebarNavHighWidth>
-        {SidebarData.map((item, index) => {
-          return <SubMenu item={item} key={index} />
-        })}
-        <button onClick={logout} className='auth-btn btn'>Logout</button>
-        <button onClick={signout} className='auth-btn btn'>SignOut</button>
+          <div className='logo'><Link to={'/'}><img src={logo} alt='logo' className='logo-image' /></Link></div>
+          <SidebarDataDisplay signout={signout} logout={logout} SidebarData={SidebarData} />
         </SidebarNavHighWidth>
         </>
       }

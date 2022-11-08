@@ -5,7 +5,7 @@ import loginImage from '../../../Assets/Images/login-image.png'
 import { useAppDispatch, useAppSelector } from '../../../Redux/hook';
 import { signIn } from '../../../Redux/Actions/Authentication';
 import axios from 'axios';
-import { api } from '../../../Api/sourceApi';
+// import { api } from '../../../Api/sourceApi';
 import { toast, ToastContainer } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -40,6 +40,10 @@ const SignIn = () => {
   // console.log(store.AuthReducer.signupData)
 
   const emails= []
+
+  const api = process.env.REACT_APP_API_URL
+
+  console.log(api)
 
   const handleClick = async () => {
     
