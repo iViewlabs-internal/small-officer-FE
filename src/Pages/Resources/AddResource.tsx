@@ -1,22 +1,12 @@
 import React,{useEffect,useState} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
-import { api } from '../../Api/sourceApi'
 import { useAppSelector } from '../../Redux/hook'
 
 const AddResource = () => {
 
    const navigate = useNavigate()
 
-//     {
-//       "name": "Bhavisha",
-//       "description": "description...",
-//       "type": "t2",
-//       "location": "amd",
-//       "personcapacity": 4
-// }
-
-    
     const [addResourceData, setResourceData] = useState({
       name : "",
       description : "",
@@ -38,6 +28,8 @@ const AddResource = () => {
     }
 
     // console.log(addResourceData)
+    
+    const api = process.env.REACT_APP_API_URL
 
     const AddResourceData = () => {
       axios.post(api + '/addResource' , addResourceData)

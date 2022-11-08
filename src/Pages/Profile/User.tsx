@@ -1,12 +1,15 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { api } from '../../Api/sourceApi'
 import { addUsers } from '../../Redux/Actions/Pages'
 import { useAppDispatch, useAppSelector } from '../../Redux/hook'
 import './profile.css'
 // import ReactLoading from 'react-loading';
 import { useNavigate } from 'react-router-dom'
+import '../../components/Pagination/pagination.scss'
+import Pagination from '../../components/Pagination/Pagination'
+
+let PageSize = 10;
 
 const User = () => {
 
@@ -23,7 +26,8 @@ const User = () => {
     const navigate = useNavigate()
 
     const [search, setSearch] = useState('')
-
+    
+    const api = process.env.REACT_APP_API_URL
 
     const fetchUsersData = async () => {
         axios.get(api + '/AddUser')
@@ -41,6 +45,14 @@ const User = () => {
 
     const user = users.filter((item : any,index : number) => item.firstname.toLowerCase() === search )
 
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const currentTableData = useMemo(() => {
+      const firstPageIndex = (currentPage - 1) * PageSize;
+      const lastPageIndex = firstPageIndex + PageSize;
+      return users.slice(firstPageIndex, lastPageIndex);
+    }, [users, currentPage]);
+
     
     // console.log(user)
 
@@ -53,7 +65,7 @@ const User = () => {
 
         <div className='add-users' >
             <h4>Users</h4>
-            <button className='btn bg-primary adduser-btn add ' onClick={() => navigate('/user/addUser')} >Add User</button>
+            <button className='btn bg-primary text-white adduser-btn add ' onClick={() => navigate('/user/addUser')} >Add User</button>
         </div>
 
         <div className='add-users-search'>
@@ -67,7 +79,6 @@ const User = () => {
         <table className='users-table' >
             <thead>
                 <tr className='user-headers'>
-                    {/* <th><input type='checkbox' className='user-checkbox'/></th> */}
                     <th>Name</th>
                     <th>Primary Location</th>
                     <th>Status</th>
@@ -75,13 +86,8 @@ const User = () => {
                 </tr>
             </thead>
             <tbody>
-                {
-                    // !users ? 
-                    // <ReactLoading type={'spinningBubbles'} color='#000' />
-                    //  : 
-                     
+                {    
                      search ? 
-
                     user.map((item : any, index : number) => {
                         return (
                             <>
@@ -97,7 +103,7 @@ const User = () => {
                         )
                     })
                     :
-                    users.map((item : any, index : any) => {
+                    currentTableData.map((item : any, index : any) => {
                         return (
                             <>
                             <tr className='user-headers'>
@@ -116,6 +122,21 @@ const User = () => {
             </tbody>
         </table>
         </div>
+
+        <div>
+            {
+                search ? "" : 
+                <Pagination
+    className="pagination-bar"
+    currentPage={currentPage}
+    totalCount={users.length}
+    pageSize={PageSize}
+    onPageChange={(page : number) => setCurrentPage(page)}
+  />
+            }
+    
+    </div>
+
 
     </div>
   )

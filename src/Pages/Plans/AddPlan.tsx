@@ -1,7 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios'
-import { api } from '../../Api/sourceApi'
 import { useAppSelector } from '../../Redux/hook'
 import { FaArrowLeft } from 'react-icons/fa';
 import './plan.css'
@@ -21,17 +20,6 @@ const AddPlan = () => {
     // console.log(param.id)
     const id = param.id
 
-//     "type": "small....",
-// "resourcename": "flexi 50",
-// "description": "access to any hot desk.....",
-// "frequency": "Recurs weekly",
-// "price": 62,
-// "defaultfee": 25,
-// "defaultdeposit": 15,
-// "defaultcontractlength": 2
-
-
-
     const [addPlansData, setAddPlansData] = useState({
       type : "",
       resourcename : "",
@@ -43,21 +31,6 @@ const AddPlan = () => {
       defaultcontractlength : 0
     })
 
-//     {
-//         "type": "small officer",
-//         "resourcename": "flexi 50",
-//         "description": "access to any hot desk.....",
-//         "frequency": "Recurs weekly",
-//         "price": 62,
-//         "defaultfee": 25,
-//         "defaultdeposit": 15,
-//         "defaultcontractlength": 2
-// }
-
-
-    // console.log(displayData.firstname + displayData.lastname)
-
-
     const handleChange = (e : any ) => {
 
       const {name, value} = e.currentTarget
@@ -68,6 +41,8 @@ const AddPlan = () => {
       }) )
 
     }
+
+    const api = process.env.REACT_APP_API_URL
 
     console.log(addPlansData)
 

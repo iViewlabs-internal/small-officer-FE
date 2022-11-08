@@ -2,7 +2,6 @@ import React,{useEffect,useState} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import User from './User'
 import axios from 'axios'
-import { api } from '../../Api/sourceApi'
 import { useAppSelector } from '../../Redux/hook'
 
 const AddUser = () => {
@@ -19,15 +18,6 @@ const AddUser = () => {
 
     console.log(param.id)
     const id = param.id
-
-    // profileimage: profileimage,
-    // firstname: firstname,
-    // lastname: lastname,
-    // about: about,
-    // company: company,
-    // position: position,
-    // cityname: cityname,
-    // date: date
 
     const [addUserData, setAddUserData] = useState({
       firstname : "",
@@ -57,6 +47,8 @@ const AddUser = () => {
     }
 
     console.log(addUserData)
+
+    const api = process.env.REACT_APP_API_URL
 
     const AddUserData = () => {
       axios.post(api + '/addUser' , addUserData)

@@ -4,9 +4,8 @@ import {FaEnvelope, FaLock} from 'react-icons/fa';
 import loginImage from '../../../Assets/Images/login-image.png'
 import { useAppDispatch, useAppSelector } from '../../../Redux/hook';
 import { signUp } from '../../../Redux/Actions/Authentication';
-import { api } from '../../../Api/sourceApi';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import validator from 'validator';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -38,6 +37,8 @@ const SignUp = () => {
     }))
 
   }
+  
+  const api = process.env.REACT_APP_API_URL
 
   const handleClick = async () => {
 
@@ -133,6 +134,10 @@ const SignUp = () => {
 
           <div className='bg-white signup-btn'>
             <button className='signup-btn btn bg-dark text-white mt-5' onClick={handleClick} >Sign Up</button>
+          </div>
+
+          <div className='extra-auth'>
+          <p>Don't have account yet ? <Link to={'/login'} >Login Here</Link></p>
           </div>
           
           </div>

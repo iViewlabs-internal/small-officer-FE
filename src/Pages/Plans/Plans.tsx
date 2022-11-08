@@ -1,14 +1,17 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { api } from '../../Api/sourceApi'
 import './plan.css'
+
+let PageSize = 10;
 
 const Plans = () => {
 
   const navigate = useNavigate()
 
   const [AddPlanData, setAddPlanData] = useState([])
+
+  const api = process.env.REACT_APP_API_URL
 
   useEffect(() => {
     axios.get(api + '/AddPlan')
@@ -65,25 +68,6 @@ const Plans = () => {
 
         }
       </div>
-
-      {/* <div>
-        <div>
-          <h3>$18 Credit</h3>
-          <p>$18 Credit to be applied to next booking</p>
-        </div>
-        <hr />
-        <div>
-          <h5>Resource/Access:</h5>
-              <div>
-                <h5>All spaces</h5>
-                <h4>18 USD</h4>
-              </div>
-        </div>
-        <hr />
-        <div>
-          <
-        </div>
-      </div> */}
     </div>
   )
 }

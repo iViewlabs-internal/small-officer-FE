@@ -1,14 +1,11 @@
 
 .resource-headers{
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
+    display: flex;
     /* border: 1px solid black; */
     justify-content: center;
     align-items: center;
     text-align: center;
 }
-
-
 
 .resource-headers > th{
     border-bottom: 1px solid black;
@@ -121,5 +118,10 @@
 
     .add-resource-type-btn{
         width: 50%;
+    }
+
+    .vertical-line{
+        border-left: 1px solid black;
+        height: 100px;
     }
 }

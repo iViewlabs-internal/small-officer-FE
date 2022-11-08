@@ -2,4 +2,8 @@
 
 // export const api = 'http://localhost:8000/api/user';
 
-export const api = 'https://small-officer-backend.herokuapp.com/api/user'
+const ap = process.env.REACT_APP_API_URL
+
+console.log(ap)
+
+export const api = `${ap}/api/user`

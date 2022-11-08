@@ -15,18 +15,18 @@ import AddUser from './Profile/AddUser'
 import Profile from './Profile/Profile'
 import User from './Profile/User'
 import AllResources from './Resources/AllResources'
-import InvoiceItems from './Resources/InvoiceItems'
-import Payments from './Resources/Payments'
 import AddResource from './Resources/AddResource'
 import AddResourceTypes from './Resources/AddResourceTypes'
 import ResourceTypes from './Resources/ResourceTypes'
+import AllInvoices from './Invoices/AllInvoices'
+import InvoiceItems from './Invoices/InvoiceItems'
+import Payments from './Invoices/Payments'
+import PaymentReceipt from './Invoices/PaymentReceipt'
 
 
 const Pages = () => {
 
   const navigate = useNavigate()
-
-
 
   useEffect(() => {
   
@@ -62,13 +62,14 @@ const Pages = () => {
               <Route path='/community/infoPage' element={<AddInfo />} />
               <Route path='/plans' element={<Plans />} />
               <Route path='/addPlan' element={<AddPlan/>} />
-              {/* <Route path='/resources' element={<Resources />} /> */}
               <Route path='/resources/allResources' element={<AllResources />} />
               <Route path='/resources/addResources' element={<AddResource />} />
               <Route path='/resources/resourceTypes' element={<ResourceTypes />} />
               <Route path='/resources/addResourceTypes' element={<AddResourceTypes />} />
-              <Route path='/resources/invoiceItems' element={<InvoiceItems />} />
-              <Route path='/resources/payments' element={<Payments />} />
+              <Route path='/Invoices' element={<AllInvoices />} />
+              <Route path='/InvoiceItems' element={<InvoiceItems />} />
+              <Route path='/Payments' element={<Payments />} />
+              <Route path='/PaymentReceipt' element={<PaymentReceipt />} />
             </Routes>
           </div>
         </div>
